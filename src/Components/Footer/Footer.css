@@ -1,0 +1,97 @@
+/* Fondo oscuro y colores contrastantes */
+footer {
+    background-color: #111; /* Fondo oscuro */
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 60px;
+  }
+  
+  /* Elimina cualquier espacio extra y mantiene el fondo transparente */
+  footer .container,
+  footer .row {
+    background-color: transparent !important; /* Fondo transparente */
+    padding: 0;
+  }
+  
+  /* Estilo de las columnas */
+  footer .col-md-3,
+  footer .col-sm-12 {
+    margin-bottom: 30px;
+  }
+  
+  /* Títulos de cada sección */
+  footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #f8b400; /* Un dorado para los títulos */
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+  
+  /* Estilo de los enlaces */
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    transition: color 0.3s, padding-left 0.3s;
+    padding-left: 0;
+  }
+  
+  footer a:hover {
+    color: #f8b400; /* Color dorado al pasar el ratón */
+    padding-left: 10px; /* Animación de desplazamiento a la izquierda */
+  }
+  
+  /* Párrafos en el footer */
+  footer p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #bbb;
+  }
+  
+  /* Alineación del copyright */
+  footer .row.mt-4 {
+    text-align: center;
+  }
+  
+  footer .row.mt-4 p {
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+  }
+  
+  /* Estilo de los íconos de redes sociales */
+  footer .col-md-3 ul li a {
+    font-size: 16px;
+    color: #fff;
+    padding: 5px;
+    display: inline-block;
+  }
+  
+  footer .col-md-3 ul li a:hover {
+    color: #f8b400; /* Cambio de color en el hover */
+  }
+  
+  /* Ajustes responsivos para pantallas pequeñas */
+  @media (max-width: 767px) {
+    footer h5 {
+      font-size: 16px;
+    }
+  
+    footer p {
+      font-size: 13px;
+    }
+  
+    footer .col-md-3 {
+      text-align: center;
+    }
+  
+    footer .col-md-3 ul li {
+      margin-bottom: 10px;
+    }
+  }
+  

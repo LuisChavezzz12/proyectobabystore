@@ -1,0 +1,35 @@
+.container {
+    margin-top: 0px; 
+    padding: 3px 10px; 
+    background-color: #fff;
+}
+
+.headerTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px; 
+}
+
+.titulo {
+    font-size: 36px; 
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-left: 10px; 
+    margin-bottom: 0px; 
+}
+
+.imagen {
+    width: 180px; 
+    height: 180px; 
+}
+
+.subtitulo {
+    font-size: 16px; 
+    color: #888;
+    margin-top: 0; 
+    margin-bottom: 5px; 
+    text-align: center;
+}
