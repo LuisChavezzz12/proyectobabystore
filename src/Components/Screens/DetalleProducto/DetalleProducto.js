@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom"; // Importa useNavigate
+
 import "./DetalleProducto.css"; // Asegúrate de importar el CSS aquí
 
 function DetalleProducto() {
@@ -20,7 +21,6 @@ function DetalleProducto() {
     return <div>Producto no encontrado.</div>;
   }
 
-  // Función para manejar la redirección al hacer clic en el botón
   const handleRegresar = () => {
     navigate("/inicio"); // Redirige a /inicio
   };
