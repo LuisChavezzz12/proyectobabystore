@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../Imgs/logobabystore.png"; // Asegúrate de que la ruta sea correcta
 import "./Footer.css"; // Asegúrate de que el CSS esté correctamente importado
 
 const Footer = () => {
@@ -19,7 +18,7 @@ const Footer = () => {
             <ul>
               <li>
                 <a href="/productos">Productos</a>
-             </li>
+              </li>
               <li>
                 <a href="/acerca-de">Acerca de</a>
               </li>
@@ -31,7 +30,7 @@ const Footer = () => {
             <ul>
               <li>
                 <a href="https://facebook.com">Facebook</a>
-              </li>              
+              </li>
               <li>
                 <a href="https://instagram.com">Instagram</a>
               </li>
@@ -45,7 +44,9 @@ const Footer = () => {
                 <a href="tel:+1234567890">Llamanos: +52 773 385 5315</a>
               </li>
               <li>
-                <a href="mailto:info@babystore.com">Email: info@babystore.com</a>
+                <a href="mailto:info@babystore.com">
+                  Email: info@babystore.com
+                </a>
               </li>
             </ul>
           </div>
@@ -53,7 +54,10 @@ const Footer = () => {
 
         <div className="row mt-4">
           <div className="col-12 text-center">
-            <p>&copy; {new Date().getFullYear()} BabyStore. Todos los derechos reservados.</p>
+            <p>
+              &copy; {new Date().getFullYear()} BabyStore. Todos los derechos
+              reservados.
+            </p>
           </div>
         </div>
       </div>

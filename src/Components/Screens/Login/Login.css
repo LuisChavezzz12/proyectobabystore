@@ -1,0 +1,116 @@
+/* Contenedor principal del modal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro transparente */
+}
+
+/* Estilo del modal */
+.login-box {
+  width: 100%;
+  max-width: 400px; /* Limita el ancho máximo */
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: auto;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Título del modal */
+.login-box h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Subtítulo del modal */
+.login-box p {
+  color: #777;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* Estilo de los inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo de los inputs cuando están enfocados */
+.login-box input:focus {
+  border-color: #28a745; /* Cambia el color del borde cuando se enfoca */
+  outline: none;
+}
+
+/* Estilo del botón de login */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover sobre el botón */
+.login-box button:hover {
+  background-color: #218838;
+}
+
+/* Estilo del mensaje de error */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Estilo del enlace para registro */
+.register-link {
+  font-size: 14px;
+  color: #007bff;
+}
+
+.register-link span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.register-link span:hover {
+  text-decoration: underline;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+    width: 90%; /* Asegura que el modal ocupe el 90% de la pantalla en móviles */
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .login-box p {
+    font-size: 14px;
+  }
+
+  .login-box input,
+  .login-box button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
