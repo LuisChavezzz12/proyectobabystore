@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
-import "./Register.css"; // Archivo de estilos
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const RegisterForm = ({ onRegister }) => {
+const RegisterForm = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -10,14 +10,23 @@ const RegisterForm = ({ onRegister }) => {
     password: "",
   });
   const [error, setError] = useState("");
-
-  const navigate = useNavigate(); // Inicializa el hook useNavigate
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6; // La contraseña debe tener al menos 6 caracteres
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.username || !formData.email || !formData.phone || !formData.password) {
@@ -25,63 +34,87 @@ const RegisterForm = ({ onRegister }) => {
       return;
     }
 
-    setError(""); // Limpiar errores antes de intentar registrar
-    console.log("Registrando usuario con:", formData);
-    onRegister(formData); // Simulación de registro exitoso
-    onLogin(); // Llama a onLogin después de registrar
-  };
+    if (!validateEmail(formData.email)) {
+      setError("El correo electrónico no es válido.");
+      return;
+    }
 
-  const onLogin = () => {
-    // Redirige al usuario a la página de login
-    navigate("/login");
+    if (!validatePassword(formData.password)) {
+      setError("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/auth/registro", formData);
+
+      // Guardar el token en localStorage (si el backend lo devuelve)
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+      }
+
+      // Redirigir al usuario con un mensaje de éxito
+      navigate("/login", { state: { successMessage: "Registro exitoso. Inicia sesión." } });
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("Error al registrar el usuario. Inténtalo de nuevo.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="register-container">
-      <div className="register-box">
-        <h2>Regístrate</h2>
-        <p>Crea una cuenta para continuar</p>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="text"
-              name="username"
-              placeholder="Nombre de Usuario"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="text"
-              name="phone"
-              placeholder="Teléfono"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-          {error && <p className="error">{error}</p>}
-          <button type="submit" className="register-btn">Registrarse</button>
-        </form>
-      </div>
+      <h2>Regístrate</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Nombre de Usuario:</label>
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Correo electrónico:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Teléfono:</label>
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        {error && <p className="error">{error}</p>}
+        <button type="submit" disabled={loading}>
+          {loading ? "Cargando..." : "Registrarse"}
+        </button>
+      </form>
     </div>
   );
 };

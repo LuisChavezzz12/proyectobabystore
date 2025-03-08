@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
-import "./Login.css"; // Archivo de estilos
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../Login/Login.css";
 
-const LoginForm = ({ onLogin }) => {
+const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
@@ -19,48 +21,74 @@ const LoginForm = ({ onLogin }) => {
       return;
     }
 
-    setError(""); // Limpiar errores antes de intentar iniciar sesión
-    console.log("Iniciando sesión con:", formData);
-    onLogin(); // Simulación de inicio de sesión exitoso
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/auth/iniciar-sesion", formData);
+
+      // Guardar el token en localStorage
+      localStorage.setItem("token", response.data.token);
+
+      // Decodificar el token para obtener el rol del usuario
+      const decodedToken = JSON.parse(atob(response.data.token.split(".")[1]));
+
+      // Redirigir según el rol
+      if (decodedToken.role === "admin") {
+        navigate("/subirp"); // Ruta para administradores
+      } else {
+        navigate("/"); // Ruta para usuarios normales
+      }
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("Credenciales inválidas. Inténtalo de nuevo.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleSwitchToRegister = () => {
+  const handleRedirectToRegister = () => {
     navigate("/registro"); // Redirige a la página de registro
   };
 
   return (
     <div className="login-container">
-      <div className="login-box">
-        <h2>Bienvenido</h2>
-        <p>Inicia sesión para continuar</p>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="password"
-              name="password"
-              placeholder="Contraseña"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-          {error && <p className="error">{error}</p>}
-          <button type="submit" className="login-btn">Iniciar Sesión</button>
-        </form>
-        <p className="register-link">
-          ¿No tienes cuenta? <span onClick={handleSwitchToRegister}>Regístrate</span>
-        </p>
-      </div>
+      <h2>Iniciar Sesión</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Correo electrónico:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        {error && <p className="error">{error}</p>}
+        <button type="submit" disabled={loading}>
+          {loading ? "Cargando..." : "Iniciar Sesión"}
+        </button>
+      </form>
+      <p>
+        ¿No tienes una cuenta?{" "}
+        <span onClick={handleRedirectToRegister} className="register-link">
+          Regístrate aquí
+        </span>
+      </p>
     </div>
   );
 };
 
-export default LoginForm;
+export default Login;

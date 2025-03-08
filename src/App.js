@@ -1,3 +1,4 @@
+// App.js
 import "./App.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +14,8 @@ import Login from "./Components/Screens/Login/Login";
 import RegisterForm from "./Components/Screens/Registro/Register";
 import Cloudinary from "./Components/Cloudinary/cloudinary";
 import SubirProducto from "./Components/Screens/SubirProd/SubirProd";
+import ProtectedRoute from "./Components/ProtectedRoute/protectedRoute";
+
 
 function App() {
   return (
@@ -51,7 +54,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<RegisterForm />} />
           <Route path="/subir" element={<Cloudinary />} />
-          <Route path="/subirp" element={<SubirProducto />}></Route>
+          <Route
+            path="/subirp"
+            element={
+              <ProtectedRoute role="admin">
+                <SubirProducto />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>
