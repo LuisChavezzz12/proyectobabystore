@@ -12,6 +12,7 @@ footer {
   footer .row {
     background-color: transparent !important; /* Fondo transparente */
     padding: 0;
+    height: 100%;
   }
   
   /* Estilo de las columnas */

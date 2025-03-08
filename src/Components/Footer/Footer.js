@@ -20,7 +20,7 @@ const Footer = () => {
                 <a href="/productos">Productos</a>
               </li>
               <li>
-                <a href="/acerca-de">Acerca de</a>
+                <a href="/acerca-de">¿Quienes somos?</a>
               </li>
             </ul>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
             <h5>Síguenos</h5>
             <ul>
               <li>
-                <a href="https://facebook.com">Facebook</a>
+                <a href="https://facebook.com/LuisChavez">Facebook</a>
               </li>
               <li>
                 <a href="https://instagram.com">Instagram</a>

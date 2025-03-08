@@ -3,34 +3,46 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .headerTop {
     display: flex;
     align-items: center;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .imagen {
     width: 120px; /* Ajusta el tamaño de la imagen según necesites */
     height: auto;
     margin-right: 15px;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .titulo {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .subtitulo {
     font-size: 16px;
     color: #555;
     margin: 0;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .auth-buttons {
     display: flex;
     align-items: center;
+    background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+    border: none; /* Elimina cualquier borde */
 }
 
 .auth-link {
@@ -40,6 +52,7 @@
     padding: 8px 16px;
     border-radius: 5px;
     font-size: 14px;
+    border: none; /* Elimina cualquier borde */
 }
 
 .auth-link:hover {
@@ -52,34 +65,47 @@
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .headerTop {
         flex-direction: column;
         align-items: center;
         margin-bottom: 1px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .imagen {
         width: 140px;    
         margin-right: 0;
         margin-bottom: 2px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .titulo {
         font-size: 20px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .subtitulo {
         font-size: 14px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .auth-buttons {
         margin-top: 10px;
+        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
+        border: none; /* Elimina cualquier borde */
     }
 
     .auth-link {
         padding: 10px 20px;
         font-size: 16px;
+        border: none; /* Elimina cualquier borde */
     }
 }

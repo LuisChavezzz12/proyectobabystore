@@ -11,6 +11,8 @@ import Footer from "./Components/Footer/Footer";
 import AcercaDe from "./Components/Screens/AcercaDe/AcercaDe";
 import Login from "./Components/Screens/Login/Login";
 import RegisterForm from "./Components/Screens/Registro/Register";
+import Cloudinary from "./Components/Cloudinary/cloudinary";
+import SubirProducto from "./Components/Screens/SubirProd/SubirProd";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
           <Route path="/acerca-de" element={<AcercaDe />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<RegisterForm />} />
+          <Route path="/subir" element={<Cloudinary />} />
+          <Route path="/subirp" element={<SubirProducto />}></Route>
         </Routes>
         <Footer />
       </div>

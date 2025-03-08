@@ -20,14 +20,7 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
                 {enlace.etiqueta}
               </Nav.Link> /* Usamos Link en lugar de href */
             ))}
-            {desplegable && (
-              <NavDropdown title={desplegable.titulo} id="navbarScrollingDropdown">
-                {desplegable.elementos.map((elemento, indice) => (
-                  elemento.divisor ? <NavDropdown.Divider key={indice} /> : 
-                  <NavDropdown.Item as={Link} to={elemento.href} key={indice}>{elemento.etiqueta}</NavDropdown.Item> // Usamos Link aquí también
-                ))}
-              </NavDropdown>
-            )}
+            
           </Nav>
           {mostrarBusqueda && (
             <Form className="d-flex">

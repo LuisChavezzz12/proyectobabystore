@@ -1,11 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // Importa useNavigate
-
-import "./DetalleProducto.css"; // Asegúrate de importar el CSS aquí
+import { useLocation, useNavigate } from "react-router-dom";
+import "./DetalleProducto.css";
 
 function DetalleProducto() {
   const location = useLocation();
-  const navigate = useNavigate(); // Hook para la navegación
+  const navigate = useNavigate();
   const {
     imagen,
     nombre,
@@ -17,27 +16,44 @@ function DetalleProducto() {
     imagenesAdicionales,
   } = location.state || {};
 
+  // Asegurarse de que imagenesAdicionales sea un arreglo
+  const imagenesAdicionalesArray = Array.isArray(imagenesAdicionales)
+    ? imagenesAdicionales
+    : [];
+
   if (!nombre) {
     return <div>Producto no encontrado.</div>;
   }
 
   const handleRegresar = () => {
-    navigate("/inicio"); // Redirige a /inicio
+    navigate("/inicio");
   };
 
   return (
     <div className="product-detail-page">
       {/* Imágenes del producto */}
       <div className="product-images">
+        {/* Imagen principal */}
         <img
           className="main-image"
-          src={imagen}
+          src={imagen} // URL completa de la imagen principal
           alt={nombre}
         />
+
+        {/* Imágenes adicionales */}
         <div className="additional-images">
-          {imagenesAdicionales && imagenesAdicionales.map((img, index) => (
-            <img key={index} src={img} alt={`Imagen adicional ${index}`} />
-          ))}
+          {imagenesAdicionalesArray.length > 0 ? (
+            imagenesAdicionalesArray.map((img, index) => (
+              <img
+                key={index}
+                src={img} // URL completa de la imagen adicional
+                alt={`Imagen adicional ${index + 1}`}
+                className="additional-image"
+              />
+            ))
+          ) : (
+            <p>No hay imágenes adicionales disponibles.</p>
+          )}
         </div>
       </div>
 
@@ -75,8 +91,10 @@ function DetalleProducto() {
             )}
           </ul>
         </div>
-        
-        <button className="add-to-cart-button" onClick={handleRegresar}>Regresar</button>
+
+        <button className="add-to-cart-button" onClick={handleRegresar}>
+          Regresar
+        </button>
       </div>
     </div>
   );

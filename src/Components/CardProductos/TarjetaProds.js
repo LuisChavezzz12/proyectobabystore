@@ -56,16 +56,18 @@ function TarjetaProds({
             descripcion,
             precio,
             descripcionExtra,
-            caracteristicas: caracteristicas || [],  // Asegurarse de que sea un arreglo
-            comentarios: comentarios || [],  // Asegurarse de que sea un arreglo
-            imagenesAdicionales: imagenesAdicionales || [], // Asegurarse de que sea un arreglo
+            caracteristicas: caracteristicas || [],
+            comentarios: comentarios || [],
+            imagenesAdicionales: Array.isArray(imagenesAdicionales)
+              ? imagenesAdicionales
+              : [], // Asegurarse de que sea un arreglo
           }}
         >
           <Button
             variant="primary"
             style={{
-              marginTop: "20px", // Separar el botón 20px de la descripción
-              marginBottom: "10px", // Puedes ajustar este margen según el diseño
+              marginTop: "20px",
+              marginBottom: "10px",
               alignSelf: "center",
             }}
           >
