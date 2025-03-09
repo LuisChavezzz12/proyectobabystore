@@ -1,9 +1,11 @@
-require("dotenv").config(); // Carga las variables de entorno desde .env
+// server.js o app.js
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const conectarDB = require("./config/db");
 const productoRoutes = require("./routes/productoRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");  // Asegúrate de incluir las rutas de usuario
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,6 +20,7 @@ app.use(express.json());
 // Rutas
 app.use("/productos", productoRoutes);
 app.use("/auth", authRoutes);
+app.use("/usuarios", userRoutes);  // Rutas para usuarios
 
 // Ruta raíz de prueba
 app.get("/", (req, res) => {

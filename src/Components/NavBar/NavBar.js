@@ -4,17 +4,26 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
-  // Obtener el token del localStorage
-  const token = localStorage.getItem('token');
-  const user = token ? JSON.parse(atob(token.split('.')[1])) : null; // Decodificar el token
+  // Función para decodificar el token y obtener el usuario
+  const getUserFromToken = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = JSON.parse(atob(token.split('.')[1])); // Decodificar el token
+      return decoded; // Retorna el usuario con sus datos (incluido el role)
+    }
+    return null; // Si no hay token, no hay usuario
+  };
+
+  const user = getUserFromToken();
+  const navigate = useNavigate();
 
   // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.reload(); // Recargar la página para actualizar el estado
+    navigate('/login');  // Redirige al login después de cerrar sesión
   };
 
   return (
@@ -30,11 +39,14 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
               </Nav.Link>
             ))}
 
-            {/* Mostrar "Subir Producto" solo para administradores */}
+            {/* Mostrar "Subir Producto" y otros enlaces solo para administradores */}
             {user && user.role === 'admin' && (
-              <Nav.Link as={Link} to="/subirp">
-                Subir Producto
-              </Nav.Link>
+              <>
+                <Nav.Link as={Link} to="/subirp">Subir Producto</Nav.Link>
+                <Nav.Link as={Link} to="/gestionar-usuarios">Gestionar Usuarios</Nav.Link>
+                <Nav.Link as={Link} to="/dashboard">AdminDashboard</Nav.Link>
+                <Nav.Link as={Link} to="/subir">Subir Imagen</Nav.Link>
+              </>
             )}
           </Nav>
 
@@ -44,10 +56,8 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
               <Button variant="outline-success">Buscar</Button>
             </Form>
           )}
-
-          {/* Mostrar botón de cerrar sesión o iniciar sesión */}
           <Nav>
-            {token ? (
+            {user ? (
               <Button variant="outline-danger" onClick={handleLogout}>
                 Cerrar Sesión
               </Button>

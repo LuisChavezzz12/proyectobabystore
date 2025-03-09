@@ -1,116 +1,82 @@
-/* Contenedor principal del modal */
-.login-container {
+.login-wrapper {
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro transparente */
 }
 
-/* Estilo del modal */
-.login-box {
+.login-container {
+  background-color: #ffffff;
+  border: 2px solid #d1bfa7; /* Tono café claro */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   width: 100%;
-  max-width: 400px; /* Limita el ancho máximo */
-  padding: 30px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
   text-align: center;
-  margin: auto;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Título del modal */
-.login-box h2 {
-  margin-bottom: 15px;
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Subtítulo del modal */
-.login-box p {
-  color: #777;
+h2 {
   margin-bottom: 20px;
-  font-size: 16px;
+  color: #5c4b33; /* Tono café oscuro */
 }
 
-/* Estilo de los inputs */
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
+form div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-/* Estilo de los inputs cuando están enfocados */
-.login-box input:focus {
-  border-color: #28a745; /* Cambia el color del borde cuando se enfoca */
-  outline: none;
-}
-
-/* Estilo del botón de login */
-.login-box button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Efecto hover sobre el botón */
-.login-box button:hover {
-  background-color: #218838;
-}
-
-/* Estilo del mensaje de error */
-.error {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* Estilo del enlace para registro */
-.register-link {
-  font-size: 14px;
-  color: #007bff;
-}
-
-.register-link span {
-  cursor: pointer;
+label {
   font-weight: bold;
+  color: #5c4b33; /* Tono café oscuro */
 }
 
-.register-link span:hover {
+input {
+  padding: 10px;
+  border: 2px solid #d1bfa7;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.3s;
+  text-align: center;
+}
+
+input:focus {
+  border-color: #a38a6d; /* Tono café intermedio */
+}
+
+button {
+  background-color: #5c4b33;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4a3b29; /* Café más oscuro para efecto hover */
+}
+
+.error {
+  color: #d9534f;
+  background-color: #fbeaea;
+  border: 1px solid #d9534f;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.register-link {
+  color: #a38a6d;
+  cursor: pointer;
   text-decoration: underline;
+  transition: color 0.3s;
 }
 
-/* Media Query para pantallas pequeñas */
-@media (max-width: 480px) {
-  .login-box {
-    padding: 20px;
-    width: 90%; /* Asegura que el modal ocupe el 90% de la pantalla en móviles */
-  }
-
-  .login-box h2 {
-    font-size: 20px;
-  }
-
-  .login-box p {
-    font-size: 14px;
-  }
-
-  .login-box input,
-  .login-box button {
-    padding: 10px;
-    font-size: 14px;
-  }
+.register-link:hover {
+  color: #5c4b33; /* Café oscuro al pasar el mouse */
 }

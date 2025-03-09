@@ -33,7 +33,7 @@ const Login = () => {
 
       // Redirigir según el rol
       if (decodedToken.role === "admin") {
-        navigate("/subirp"); // Ruta para administradores
+        navigate("/inicio"); // Ruta para administradores
       } else {
         navigate("/"); // Ruta para usuarios normales
       }
