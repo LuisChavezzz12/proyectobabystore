@@ -1,0 +1,66 @@
+.contacto-empresa-container {
+    width: 60%; /* Reducir el ancho */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px;
+    background-color: #f8f4e6; /* Color de fondo café claro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.5rem; /* Reducir el tamaño de los títulos */
+    text-align: center;
+    color: #4e2a84; /* Color para el título */
+  }
+  h3 {
+    font-size: 1.5rem; /* Reducir el tamaño de los títulos */
+    text-align: center;
+    color: #4e2a84; /* Color para el título */
+  }
+  
+  .info-contacto {
+    background-color: #fff; /* Fondo blanco para la información */
+    border: 2px solid #4e2a84; /* Borde morado */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-contacto p {
+    font-size: 0.9rem; /* Reducir el tamaño de los textos */
+    line-height: 1.5;
+    color: #4e2a84; /* Color del texto */
+    margin: 8px 0;
+  }
+  
+  .link-maps {
+    color: #4e2a84;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link-maps:hover {
+    text-decoration: underline;
+  }
+  
+  .mapa-container {
+    margin-top: 20px;
+    text-align: center;
+    background-color: #fff; /* Fondo blanco para el mapa */
+    border: 2px solid #4e2a84; /* Borde morado */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  iframe {
+    border-radius: 8px;
+    border: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .contacto-empresa-container {
+      width: 90%; /* Hacer el contenedor aún más pequeño en pantallas pequeñas */
+    }
+  }
+  

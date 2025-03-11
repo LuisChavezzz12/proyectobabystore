@@ -1,0 +1,121 @@
+/* Títulos */
+.dashboard-title {
+    text-align: center;
+    color: #3e2723; /* Tono café oscuro */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .form-title {
+    color: #5d4037; /* Tono café más claro */
+    font-size: 1.4em;
+    margin-bottom: 12px;
+  }
+  
+  /* Estilos del formulario */
+  .form-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: none;
+    margin-bottom: 20px;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .submit-button {
+    background-color: #8d6e63; /* Tono café claro */
+    color: white;
+    padding: 8px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: #6d4c41; /* Cambio de color al pasar el ratón */
+  }
+  
+  /* Estilo para la tabla */
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .product-table th, .product-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 1em;
+  }
+  
+  .product-table th {
+    background-color: #3e2723;
+    color: white;
+    font-size: 1.1em;
+  }
+  
+  .product-table td {
+    background-color: #fff;
+  }
+  
+  /* Filas alternas con colores */
+  .product-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+  }
+  
+  /* Efecto hover en filas */
+  .product-table tr:hover {
+    background-color: #efebe9;
+  }
+  
+  /* Botones en la tabla */
+  .edit-button {
+    background-color: #0288d1; /* Azul para editar */
+    padding: 6px 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .edit-button:hover {
+    background-color: #0277bd;
+  }
+  
+  .delete-button {
+    background-color: #d32f2f; /* Rojo para eliminar */
+    padding: 6px 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c62828; /* Cambio de color al pasar el ratón */
+  }
+  
+  /* Asegurando que los botones no sobresalgan de la tabla */
+  .product-table td button {
+    margin: 4px;
+  }
+  
+  /* Estilos para el texto cargando */
+  .loading-text {
+    text-align: center;
+    font-size: 1.1em;
+    color: #6d4c41;
+  }
+      

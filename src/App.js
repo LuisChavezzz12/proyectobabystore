@@ -1,4 +1,3 @@
-// App.js
 import "./App.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,16 +19,18 @@ import GestionarUsuarios from "./Components/Screens/GestionarUsuarios/GestionarU
 import PerfilAdmin from "./Components/Screens/PerfilAdmin/PerfilAdmin"; // Perfil de admin
 import Politicas from "./Components/Screens/Politicas/Politicas"; // Modificar Políticas
 import EditarUsuario from "./Components/Screens/EditarUsuario/EditarUsuario";
-import EditarProducto from "./Components/Screens/AdminDashboard/EditarProducto";
+import EditarProducto from "./Components/Screens/EditarProducto/EditarProducto";
+import ContactForm from "./Components/Screens/Contacto/ContactoEmpresa";
+import Perfil from "./Components/Perfil/Perfil";
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app-container">
         <Header
           titulo="BabyStore"
           imagen={logo}
-          subtitulo="Comodidad y comfort para tu bebe!!"
+          subtitulo="Comodidad y comfort para tu bebé!!"
         />
         <NavScrollExample
           marca={{ etiqueta: "BabyStore", href: "#" }}
@@ -39,7 +40,7 @@ function App() {
             { etiqueta: "Contacto", href: "/Contacto" },
           ]}
           desplegable={{
-            titulo: "Categorias",
+            titulo: "Categorías",
             elementos: [
               { etiqueta: "Ropa", href: "/Ropa" },
               { etiqueta: "Juguetes", href: "/Juguetes" },
@@ -51,80 +52,84 @@ function App() {
           mostrarBusqueda={true}
         />
 
-        <Routes>
-          {/* Rutas públicas */}
-          <Route path="/" element={<ProductPage />} />
-          <Route path="/Inicio" element={<ProductPage />} />
-          <Route path="/Productos" element={<ProductPage />} />
-          <Route path="/product/:id" element={<DetalleProducto />} />
-          <Route path="/acerca-de" element={<AcercaDe />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<RegisterForm />} />
-          <Route
-            path="/subir"
-            element={
-              <ProtectedRoute role="admin">
-                <Cloudinary />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/subirp"
-            element={
-              <ProtectedRoute role="admin">
-                <SubirProducto />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute role="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/gestionar-usuarios"
-            element={
-              <ProtectedRoute role="admin">
-                <GestionarUsuarios />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/perfil"
-            element={
-              <ProtectedRoute role="admin">
-                <PerfilAdmin />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/politicas"
-            element={
-              <ProtectedRoute role="admin">
-                <Politicas />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/editar-usuario/:id"
-            element={
-              <ProtectedRoute role="admin">
-                <EditarUsuario />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/editar-producto/:id"
-            element={
-              <ProtectedRoute role="admin">
-                <EditarProducto />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<ProductPage />} />
+            <Route path="/Inicio" element={<ProductPage />} />
+            <Route path="/Productos" element={<ProductPage />} />
+            <Route path="/product/:id" element={<DetalleProducto />} />
+            <Route path="/acerca-de" element={<AcercaDe />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<RegisterForm />} />
+            <Route path="/contacto" element={<ContactForm />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route
+              path="/subir"
+              element={
+                <ProtectedRoute role="admin">
+                  <Cloudinary />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/subirp"
+              element={
+                <ProtectedRoute role="admin">
+                  <SubirProducto />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute role="admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/gestionar-usuarios"
+              element={
+                <ProtectedRoute role="admin">
+                  <GestionarUsuarios />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/perfil"
+              element={
+                <ProtectedRoute role="admin">
+                  <PerfilAdmin />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/politicas"
+              element={
+                <ProtectedRoute role="admin">
+                  <Politicas />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/editar-usuario/:id"
+              element={
+                <ProtectedRoute role="admin">
+                  <EditarUsuario />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/editar-producto/:id"
+              element={
+                <ProtectedRoute role="admin">
+                  <EditarProducto />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
+
         <Footer />
       </div>
     </Router>

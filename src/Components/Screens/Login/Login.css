@@ -1,82 +1,121 @@
-.login-wrapper {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .login-container {
   background-color: #ffffff;
-  border: 2px solid #d1bfa7; /* Tono café claro */
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px; /* Reducido el padding */
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
-  margin-bottom: 20px;
-  color: #5c4b33; /* Tono café oscuro */
+  margin-bottom: 20px; /* Reducido el margen inferior */
+  color: #343a40; /* Color oscuro */
+  font-size: 24px;
+  font-weight: 600;
 }
 
 form div {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Reducido el margen inferior */
+  text-align: left;
 }
 
 label {
-  font-weight: bold;
-  color: #5c4b33; /* Tono café oscuro */
+  display: block;
+  margin-bottom: 5px; /* Reducido el margen inferior */
+  color: #495057; /* Color gris oscuro */
+  font-size: 14px;
+  font-weight: 500;
 }
 
 input {
-  padding: 10px;
-  border: 2px solid #d1bfa7;
-  border-radius: 6px;
+  width: 100%;
+  padding: 10px; /* Reducido el padding */
+  border: 1px solid #ced4da; /* Borde suave */
+  border-radius: 8px;
+  font-size: 14px;
+  color: #495057;
   outline: none;
-  transition: border 0.3s;
-  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
-  border-color: #a38a6d; /* Tono café intermedio */
+  border-color: #80bdff; /* Borde azul al enfocar */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
 }
 
 button {
-  background-color: #5c4b33;
+  width: 100%;
+  padding: 10px; /* Reducido el padding */
+  background-color: #007bff; /* Azul moderno */
   color: #fff;
   border: none;
-  padding: 10px 0;
-  border-radius: 6px;
-  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #4a3b29; /* Café más oscuro para efecto hover */
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #6c757d; /* Gris cuando está deshabilitado */
+  cursor: not-allowed;
+  transform: none;
 }
 
 .error {
-  color: #d9534f;
-  background-color: #fbeaea;
-  border: 1px solid #d9534f;
-  border-radius: 6px;
-  padding: 8px;
-  margin-bottom: 15px;
+  color: #dc3545; /* Rojo para errores */
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 8px; /* Reducido el padding */
+  margin-bottom: 15px; /* Reducido el margen inferior */
+  font-size: 14px;
 }
 
 .register-link {
-  color: #a38a6d;
+  color: #007bff; /* Azul para enlaces */
   cursor: pointer;
-  text-decoration: underline;
-  transition: color 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .register-link:hover {
-  color: #5c4b33; /* Café oscuro al pasar el mouse */
+  color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  text-decoration: underline;
+}
+
+/* Spinner de carga */
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

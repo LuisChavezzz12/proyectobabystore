@@ -6,7 +6,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, "El nombre de usuario es obligatorio."],
     minlength: [3, "El nombre de usuario debe tener al menos 3 caracteres."],
-    maxlength: [30, "El nombre de usuario no puede tener más de 30 caracteres."],
+    maxlength: [
+      30,
+      "El nombre de usuario no puede tener más de 30 caracteres.",
+    ],
   },
   email: {
     type: String,
@@ -20,10 +23,7 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: [true, "El teléfono es obligatorio."],
-    match: [
-      /^[0-9]{10}$/,
-      "El teléfono debe tener 10 dígitos.",
-    ],
+    match: [/^[0-9]{10}$/, "El teléfono debe tener 10 dígitos."],
   },
   password: {
     type: String,
@@ -35,6 +35,8 @@ const UserSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
+  resetPasswordToken: String, // Nuevo campo para el token
+  resetPasswordExpires: Date, // Nuevo campo para la expiración
 });
 
 // Hash de la contraseña antes de guardar el usuario

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import './Cloudinary.css';  // Importar el CSS
 
 const Cloudinary = () => {
-  const preset_name = "v8oot77t"; // Nombre del preset de Cloudinary
-  const cloud_name = "dop92wdwk"; // Nombre del Cloudinary
+  const preset_name = "v8oot77t"; 
+  const cloud_name = "dop92wdwk";
 
-  const [image, setImage] = useState(''); // Estado para la URL de la imagen
-  const [loading, setLoading] = useState(false); // Estado para indicar carga
+  const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const uploadImage = async (e) => {
     const files = e.target.files;
@@ -22,7 +23,7 @@ const Cloudinary = () => {
       });
 
       const file = await response.json();
-      setImage(file.secure_url); // Guardamos la URL de la imagen
+      setImage(file.secure_url);
       setLoading(false);
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -30,7 +31,6 @@ const Cloudinary = () => {
     }
   };
 
-  // Función para copiar la URL al portapapeles
   const copyToClipboard = () => {
     navigator.clipboard.writeText(image).then(() => {
       alert("URL copiada al portapapeles!");
@@ -40,7 +40,7 @@ const Cloudinary = () => {
   };
 
   return (
-    <div>
+    <div className="cloudinary-container">
       <h1>Subir Imagen</h1>
       <input type="file" name="file" onChange={uploadImage} />
 
@@ -48,10 +48,10 @@ const Cloudinary = () => {
         <h3>Cargando...</h3>
       ) : (
         image && (
-          <div>
-            <img src={image} alt="Imagen subida" style={{ maxWidth: '300px', marginTop: '10px' }} />
+          <div className="url-container">
+            <img src={image} alt="Imagen subida" />
             <p>URL de la imagen:</p>
-            <input type="text" value={image} readOnly style={{ width: '100%' }} />
+            <input type="text" value={image} readOnly />
             <button onClick={copyToClipboard}>Copiar URL</button>
           </div>
         )

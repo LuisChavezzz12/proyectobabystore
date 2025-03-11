@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Register.css"; // Asegúrate de importar el archivo CSS
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const RegisterForm = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -52,7 +53,6 @@ const RegisterForm = () => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
       }
-
       // Redirigir al usuario con un mensaje de éxito
       navigate("/login", { state: { successMessage: "Registro exitoso. Inicia sesión." } });
     } catch (error) {
@@ -67,54 +67,62 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="register-container">
-      <h2>Regístrate</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre de Usuario:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Correo electrónico:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Teléfono:</label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {error && <p className="error">{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? "Cargando..." : "Registrarse"}
-        </button>
-      </form>
+    <div className="register-wrapper">
+      <div className="register-container">
+        <h2>Regístrate</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Nombre de Usuario:</label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Correo electrónico:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Teléfono:</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && <p className="error">{error}</p>}
+          <button type="submit" disabled={loading}>
+            {loading ? (
+              <>
+                <span className="spinner"></span> Cargando...
+              </>
+            ) : (
+              "Registrarse"
+            )}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

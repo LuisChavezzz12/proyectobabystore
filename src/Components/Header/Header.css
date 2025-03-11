@@ -15,7 +15,7 @@
 }
 
 .imagen {
-    width: 120px; /* Ajusta el tamaño de la imagen según necesites */
+    width: 100px; /* Ajusta el tamaño de la imagen según necesites */
     height: auto;
     margin-right: 15px;
     background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
@@ -78,10 +78,9 @@
     }
 
     .imagen {
-        width: 140px;    
+        width: 100px;    
         margin-right: 0;
         margin-bottom: 2px;
-        background-color: transparent; /* Asegúrate de que no haya un fondo no deseado */
         border: none; /* Elimina cualquier borde */
     }
 

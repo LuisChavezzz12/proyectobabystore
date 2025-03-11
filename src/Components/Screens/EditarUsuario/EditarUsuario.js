@@ -50,7 +50,7 @@ const EditarUsuario = () => {
             type="text"
             name="username"
             value={usuario.username}
-            onChange={handleChange}
+            disabled // Desactiva el campo completamente
           />
         </div>
         <div>
@@ -59,7 +59,7 @@ const EditarUsuario = () => {
             type="email"
             name="email"
             value={usuario.email}
-            onChange={handleChange}
+            disabled // Desactiva el campo completamente
           />
         </div>
         <div>
@@ -68,7 +68,7 @@ const EditarUsuario = () => {
             type="text"
             name="phone"
             value={usuario.phone}
-            onChange={handleChange}
+            disabled // Desactiva el campo completamente
           />
         </div>
         <div>

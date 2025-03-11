@@ -1,19 +1,20 @@
-/* Fondo oscuro y colores contrastantes */
 footer {
-    background-color: #111; /* Fondo oscuro */
-    color: #fff;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    margin-top: 60px;
-  }
-  
-  /* Elimina cualquier espacio extra y mantiene el fondo transparente */
-  footer .container,
-  footer .row {
-    background-color: transparent !important; /* Fondo transparente */
-    padding: 0;
-    height: 100%;
-  }
+  background-color: #111; /* Fondo oscuro */
+  color: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 60px; /* Espacio para separarlo del contenido */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  position: relative;
+  bottom: 0; /* Fija el footer al final */
+}
+
+footer .container,
+footer .row {
+  background-color: transparent !important; /* Fondo transparente */
+  padding: 0;
+  height: 100%;
+}
   
   /* Estilo de las columnas */
   footer .col-md-3,

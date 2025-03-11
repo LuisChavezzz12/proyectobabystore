@@ -1,0 +1,84 @@
+.editar-producto-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items: center; /* Centrar los elementos */
+  justify-content: flex-start; /* Asegura que los elementos estén alineados al inicio */
+  width: 100%; /* Usamos todo el ancho disponible */
+  max-width: 1200px; /* Limitar el ancho máximo a 1200px */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px; /* Separación entre el título y el formulario */
+}
+
+.formulario {
+  width: 80%; /* Aumentamos el ancho del formulario al 80% de la pantalla */
+  margin-top: 20px;
+}
+
+.tabla-editar {
+  width: 100%; /* Tabla ocupa el 100% del ancho disponible */
+  border-collapse: collapse; /* Elimina el espacio entre las celdas */
+}
+
+.tabla-editar th,
+.tabla-editar td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tabla-editar th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tabla-editar td {
+  border: 1px solid #ddd;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Aseguramos que los inputs ocupen el 100% del ancho */
+  box-sizing: border-box; /* Para que el padding no afecte al tamaño total */
+}
+
+/* Campos de descripción, características, etc. más grandes */
+.input-grande {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  height: 100px; /* Mayor altura para estos campos */
+  box-sizing: border-box; /* Para que el padding no afecte al tamaño total */
+}
+
+/* Estilo para el botón de guardar */
+.boton-guardar {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; /* Hace que el botón ocupe todo el ancho del formulario */
+}
+
+.boton-guardar:hover {
+  background-color: #45a049;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [productos, setProductos] = useState([]);
@@ -83,11 +84,12 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <h2>Dashboard de Administración de Productos</h2>
+      <h2 className="dashboard-title">Dashboard de Administración de Productos</h2>
 
-      <h3>Agregar Producto</h3>
-      <form onSubmit={handleSubmit}>
+      <h3 className="form-title">Agregar Producto</h3>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
+          className="input"
           type="text"
           name="nombre"
           placeholder="Nombre"
@@ -96,6 +98,7 @@ const AdminDashboard = () => {
           required
         />
         <textarea
+          className="textarea"
           name="descripcion"
           placeholder="Descripción"
           value={newProduct.descripcion}
@@ -103,6 +106,7 @@ const AdminDashboard = () => {
           required
         />
         <input
+          className="input"
           type="number"
           name="precio"
           placeholder="Precio"
@@ -111,6 +115,7 @@ const AdminDashboard = () => {
           required
         />
         <textarea
+          className="textarea"
           name="descripcionExtra"
           placeholder="Descripción Extra"
           value={newProduct.descripcionExtra}
@@ -118,6 +123,7 @@ const AdminDashboard = () => {
           required
         />
         <input
+          className="input"
           type="text"
           name="imagen"
           placeholder="URL de Imagen"
@@ -125,14 +131,14 @@ const AdminDashboard = () => {
           onChange={handleInputChange}
           required
         />
-        <button type="submit">Agregar Producto</button>
+        <button className="submit-button" type="submit">Agregar Producto</button>
       </form>
 
-      <h3>Lista de Productos</h3>
+      <h3 className="form-title">Lista de Productos</h3>
       {loading ? (
-        <p>Cargando productos...</p>
+        <p className="loading-text">Cargando productos...</p>
       ) : (
-        <table>
+        <table className="product-table">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -148,8 +154,8 @@ const AdminDashboard = () => {
                 <td>{producto.precio}</td>
                 <td>{producto.descripcion}</td>
                 <td>
-                  <button onClick={() => handleEdit(producto._id)}>Editar</button>
-                  <button onClick={() => handleDelete(producto._id)}>Eliminar</button>
+                  <button className="edit-button" onClick={() => handleEdit(producto._id)}>Editar</button>
+                  <button className="delete-button" onClick={() => handleDelete(producto._id)}>Eliminar</button>
                 </td>
               </tr>
             ))}

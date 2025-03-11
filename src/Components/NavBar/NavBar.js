@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, useNavigate } from 'react-router-dom';
 
 function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
@@ -20,10 +21,9 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
   const user = getUserFromToken();
   const navigate = useNavigate();
 
-  // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/login');  // Redirige al login después de cerrar sesión
+    navigate('/login'); 
   };
 
   return (
@@ -39,7 +39,6 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
               </Nav.Link>
             ))}
 
-            {/* Mostrar "Subir Producto" y otros enlaces solo para administradores */}
             {user && user.role === 'admin' && (
               <>
                 <Nav.Link as={Link} to="/subirp">Subir Producto</Nav.Link>
@@ -56,11 +55,25 @@ function BarraNavegacion({ marca, enlaces, desplegable, mostrarBusqueda }) {
               <Button variant="outline-success">Buscar</Button>
             </Form>
           )}
+          
           <Nav>
             {user ? (
-              <Button variant="outline-danger" onClick={handleLogout}>
-                Cerrar Sesión
-              </Button>
+              <NavDropdown
+                title="👤"  
+                id="navbarScrollingDropdown"
+                align="end"
+              >
+                <NavDropdown.Item as={Link} to="/perfil">
+                  Ver Perfil
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/editar-perfil">
+                  Modificar Perfil
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={handleLogout}>
+                  Cerrar Sesión
+                </NavDropdown.Item>
+              </NavDropdown>
             ) : (
               <Nav.Link as={Link} to="/login">
                 Iniciar Sesión

@@ -29,7 +29,7 @@ const Footer = () => {
             <h5>Síguenos</h5>
             <ul>
               <li>
-                <a href="https://facebook.com/LuisChavez">Facebook</a>
+                <a href="https://facebook.com/">Facebook</a>
               </li>
               <li>
                 <a href="https://instagram.com">Instagram</a>

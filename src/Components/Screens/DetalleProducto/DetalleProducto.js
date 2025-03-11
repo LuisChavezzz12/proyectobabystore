@@ -12,7 +12,6 @@ function DetalleProducto() {
     precio,
     descripcionExtra,
     caracteristicas,
-    comentarios,
     imagenesAdicionales,
   } = location.state || {};
 
@@ -76,22 +75,6 @@ function DetalleProducto() {
             )}
           </ul>
         </div>
-
-        <div className="comments">
-          <h3>Comentarios:</h3>
-          <ul>
-            {comentarios && comentarios.length > 0 ? (
-              comentarios.map((comentario, index) => (
-                <li key={index}>
-                  {comentario.texto} - {comentario.usuario}
-                </li>
-              ))
-            ) : (
-              <li>No hay comentarios disponibles</li>
-            )}
-          </ul>
-        </div>
-
         <button className="add-to-cart-button" onClick={handleRegresar}>
           Regresar
         </button>

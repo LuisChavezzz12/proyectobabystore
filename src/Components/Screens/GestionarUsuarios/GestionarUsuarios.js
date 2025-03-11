@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import './GesUsuarios.css'; // Archivo CSS para la tabla
 
 const GestionarUsuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -47,13 +47,27 @@ const GestionarUsuarios = () => {
     }
   };
 
+  // Función para actualizar el rol del usuario
+  const handleRoleChange = async (userId, newRole) => {
+    try {
+      await axios.put(`http://localhost:5000/usuarios/${userId}`, { role: newRole });
+      alert("Rol actualizado correctamente");
+      setUsuarios(usuarios.map((usuario) => 
+        usuario._id === userId ? { ...usuario, role: newRole } : usuario
+      ));
+    } catch (error) {
+      console.error("Error al actualizar el rol", error);
+      alert("Hubo un error al actualizar el rol");
+    }
+  };
+
   return (
     <div>
       <h2>Listado de Usuarios</h2>
       {loading ? (
         <p>Cargando...</p>
       ) : (
-        <table>
+        <table className="usuarios-table">
           <thead>
             <tr>
               <th>Nombre de Usuario</th>
@@ -66,13 +80,21 @@ const GestionarUsuarios = () => {
           <tbody>
             {usuarios.map((usuario) => (
               <tr key={usuario._id}>
-                <td>{usuario.username}</td>
-                <td>{usuario.email}</td>
-                <td>{usuario.phone}</td>
-                <td>{usuario.role}</td>
+                <td><span>{usuario.username}</span></td> {/* Mostrar el valor como texto estático */}
+                <td><span>{usuario.email}</span></td> {/* Mostrar el valor como texto estático */}
+                <td><span>{usuario.phone}</span></td> {/* Mostrar el valor como texto estático */}
                 <td>
-                  <button onClick={() => handleEdit(usuario._id)}>Editar</button>
-                  <button onClick={() => handleDelete(usuario._id)}>Eliminar</button>
+                  <select
+                    value={usuario.role}
+                    onChange={(e) => handleRoleChange(usuario._id, e.target.value)}
+                  >
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
+                  </select>
+                </td>
+                <td>
+                  <button className="edit-button" onClick={() => handleEdit(usuario._id)}>Editar</button>
+                  <button className="delete-button" onClick={() => handleDelete(usuario._id)}>Eliminar</button>
                 </td>
               </tr>
             ))}
