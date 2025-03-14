@@ -1,0 +1,67 @@
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f3ef; /* Fondo con tonos cálidos */
+}
+
+.register-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #8b5e3c;
+}
+
+.input-group {
+  margin-bottom: 0.8rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #6b4f36;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d3b8a5;
+  border-radius: 6px;
+}
+
+.show-password {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #8b5e3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #6b4f36;
+}
+
+.error {
+  color: #d9534f;
+  text-align: center;
+  margin-top: 1rem;
+}

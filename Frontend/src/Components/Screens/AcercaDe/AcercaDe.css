@@ -1,0 +1,169 @@
+/* 🔥 Contenedor principal */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  border: 3px solid #A67B5B;
+  text-align: center; /* Centrar texto dentro */
+}
+
+/* 🔥 Encabezado "Quiénes Somos" */
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-header h1 {
+  font-size: 2.8rem; /* Aumentado */
+  color: #6D4C41;
+  font-weight: 800;
+  border-bottom: 4px solid #A67B5B;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.about-header p {
+  font-size: 1.4rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 🔥 Estilos de Misión, Visión y Valores */
+.about-section {
+  margin-bottom: 40px;
+  padding: 25px;
+  background: #FAF3E0;
+  border-radius: 10px;
+  border: 4px solid #A67B5B;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; /* Centrar texto */
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-section h2 {
+  font-size: 3rem;  /* Aumentado */
+  color: #8B5E3B;
+  font-weight: 800;
+  border-bottom: 5px solid #A67B5B;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.about-section p {
+  font-size: 1.8rem;  /* Aumentado */
+  color: #5D4037;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* 🔥 Sección de Miembros del Equipo */
+.about-team {
+  margin-top: 40px;
+  text-align: center; /* Centrar */
+}
+
+.about-team h2 {
+  font-size: 2.2rem; /* Reducido */
+  color: #8B5E3B;
+  font-weight: 700;
+  border-bottom: 4px solid #A67B5B;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.about-team p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+/* 🔥 Tarjetas de Miembros del Equipo */
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #A67B5B;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 5px solid #A67B5B;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #5D4037;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* 🔥 Responsivo */
+@media (max-width: 768px) {
+  .about-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .about-section h2 {
+    font-size: 2.6rem;
+  }
+
+  .team-member {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header h1 {
+    font-size: 2rem;
+  }
+
+  .about-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .team-member {
+    width: 100%;
+    padding: 15px;
+  }
+}

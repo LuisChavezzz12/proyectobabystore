@@ -1,0 +1,165 @@
+/* Contenedor principal para toda la aplicación */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+/* Contenido principal que se expande dinámicamente */
+.main-content {
+  flex: 1; /* Ocupa el espacio restante */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f5f2; /* Fondo claro para mayor contraste */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Encabezado principal */
+.App-header {
+  background-color: #4e342e; /* Fondo café oscuro */
+  color: #fff; /* Texto blanco */
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8rem; /* Aumento el tamaño del texto */
+  box-sizing: border-box;
+  border-bottom: 2px solid #795548; /* Agregado para darle un borde de separación */
+}
+
+/* Logo de la aplicación */
+.App-logo {
+  height: 30vmin; /* Tamaño ajustado para el logo */
+  pointer-events: none;
+  margin-bottom: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear; /* Animación más suave */
+  }
+}
+
+/* Enlace principal (botones o links) */
+.App-link {
+  color: #795548; /* Tono café oscuro */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: #5d4037; /* Café más oscuro al pasar el mouse */
+}
+
+/* Animación del logo */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo de sección principal (contenedor del formulario u otros elementos) */
+.section {
+  width: 100%;
+  max-width: 600px; /* Limita el ancho de la sección */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Estilos para los campos de formulario */
+input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: 2px solid #a1887f;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #4e342e;
+  outline: none;
+  font-size: 1.1em;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #795548;
+}
+
+/* Estilos para el botón */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #795548;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+button:hover {
+  background-color: #5d4037;
+}
+
+/* Estilo para los mensajes de error */
+.error {
+  color: #d32f2f;
+  background-color: #fbe9e7;
+  padding: 12px;
+  border: 1px solid #d32f2f;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 1.1em;
+  text-align: left;
+}
+
+/* Estilos responsivos para dispositivos móviles y pantallas más pequeñas */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: 1.5rem; /* Ajustamos el tamaño del encabezado */
+    padding: 15px;
+  }
+
+  .App-logo {
+    height: 25vmin; /* Ajustamos el tamaño del logo */
+  }
+
+  .section {
+    padding: 20px;
+    max-width: 100%; /* Se adapta al 100% de la pantalla */
+    margin-top: 10px;
+  }
+
+  input, button {
+    font-size: 1em; /* Ajustamos el tamaño de los inputs y botones */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    font-size: 1.3rem; /* Ajustamos más el tamaño del encabezado */
+  }
+
+  .App-logo {
+    height: 20vmin; /* Logo aún más pequeño para pantallas muy pequeñas */
+  }
+
+  .section {
+    padding: 15px; /* Espacio más pequeño */
+  }
+
+  input, button {
+    font-size: 0.9em; /* Tamaño de los inputs y botones ajustado */
+  }
+}
