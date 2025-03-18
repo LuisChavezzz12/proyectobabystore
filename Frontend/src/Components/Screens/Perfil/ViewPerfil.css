@@ -1,0 +1,70 @@
+/* Contenedor principal del perfil */
+.profile-container {
+  background-color: #fef9f3;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin-bottom: 20px; /* Espacio en la parte inferior */
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  top: 0; /* Aseguramos que esté alineado al principio */
+}
+
+/* Título del perfil */
+#profile-heading {
+  font-size: 22px;
+  color: #8b5e3c;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 0; /* Sin espacio arriba */
+}
+
+/* Estilos generales para los campos del perfil */
+.profile-field {
+  margin-bottom: 15px;
+}
+
+.profile-field label {
+  display: block;
+  font-size: 14px;
+  color: #8b5e3c;
+  margin-bottom: 5px;
+}
+
+.profile-field p {
+  font-size: 16px;
+  color: #495057;
+  margin: 0;
+  padding: 5px;
+  background-color: #f0e6d6;
+  border-radius: 8px;
+}
+
+/* Estilo para mensajes de error */
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Ajustes de responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  #profile-heading {
+    font-size: 20px;
+  }
+
+  .profile-field p {
+    font-size: 14px;
+  }
+}

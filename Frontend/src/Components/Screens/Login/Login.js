@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../Login/Login.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importación de los íconos
+import "./Login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar contraseña
   const navigate = useNavigate();
 
   // Verificar si el usuario ya está autenticado
@@ -43,7 +45,10 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/auth/iniciar-sesion", formData);
+      const response = await axios.post(
+        "https://backend-xi-ashen-51.vercel.app/auth/iniciar-sesion",
+        formData
+      );
 
       // Guardar el token en localStorage
       localStorage.setItem("token", response.data.token);
@@ -61,7 +66,9 @@ const Login = () => {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
       } else if (error.request) {
-        setError("No se pudo conectar al servidor. Inténtalo de nuevo más tarde.");
+        setError(
+          "No se pudo conectar al servidor. Inténtalo de nuevo más tarde."
+        );
       } else {
         setError("Credenciales inválidas. Inténtalo de nuevo.");
       }
@@ -89,15 +96,21 @@ const Login = () => {
               required
             />
           </div>
-          <div>
+          <div className="password-container">
             <label>Contraseña:</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
             />
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
           {error && <p className="error">{error}</p>}
           <button type="submit" disabled={loading}>
@@ -114,6 +127,14 @@ const Login = () => {
           ¿No tienes una cuenta?{" "}
           <span onClick={handleRedirectToRegister} className="register-link">
             Regístrate aquí
+          </span>
+        </p>
+        <p>
+          <span
+            onClick={() => navigate("/recuperar")}
+            className="forgot-password-link"
+          >
+            ¿Olvidaste tu contraseña?
           </span>
         </p>
       </div>

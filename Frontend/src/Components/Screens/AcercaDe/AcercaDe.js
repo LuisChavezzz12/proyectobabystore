@@ -7,7 +7,7 @@ const AcercaDe = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/nosotros"); // Cambia la URL si es necesario
+        const response = await fetch("https://backend-xi-ashen-51.vercel.app/nosotros"); // Cambia la URL si es necesario
         const data = await response.json();
         setAboutData(data); // Guardar los datos en el estado
       } catch (error) {
@@ -43,13 +43,7 @@ const AcercaDe = () => {
         <h2>Visión</h2>
         <p>{aboutData.vision}</p>
       </section>
-
-      {/* Historia */}
-      <section className="about-description">
-        <h2>Nuestra Historia</h2>
-        <p>{aboutData.historia}</p>
-      </section>
-
+            
       {/* Valores */}
       <section className="about-description">
         <h2>Nuestros Valores</h2>
@@ -58,29 +52,6 @@ const AcercaDe = () => {
             <li key={index}>{valor}</li>
           ))}
         </ul>
-      </section>
-
-      {/* Equipo */}
-      <section className="about-team">
-        <h2>Conoce al equipo</h2>
-        <p>
-          Somos un equipo apasionado que trabaja incansablemente para ofrecerte
-          lo mejor.
-        </p>
-        <div className="team-members">
-          {aboutData.equipo.map((miembro) => (
-            <div className="team-member" key={miembro._id}>
-              <img
-                src={miembro.imagen || "https://via.placeholder.com/150"} // Enlace a la imagen por defecto
-                alt={`Miembro del equipo ${miembro.nombre}`}
-                className="team-member-img"
-              />
-              <h3>{miembro.nombre}</h3>
-              <p>Puesto: {miembro.cargo}</p>
-              <p>{miembro.descripcion}</p>
-            </div>
-          ))}
-        </div>
       </section>
     </div>
   );

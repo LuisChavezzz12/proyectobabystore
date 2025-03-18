@@ -1,0 +1,93 @@
+/* Estilos globales para el formulario */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilo para el contenedor del formulario */
+  form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 900px; /* Limita el ancho del formulario */
+    box-sizing: border-box;
+  }
+  
+  /* Título */
+  h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Etiquetas */
+  label {
+    font-size: 16px;
+    color: #444;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Estilos generales para inputs y textarea */
+  input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 15px; /* Mayor padding para que sea más grande */
+    margin: 10px 0 20px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    background-color: #fafafa;
+    font-size: 16px; /* Aumento el tamaño de la fuente */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  /* Ajustes específicos para textarea */
+  textarea {
+    resize: vertical;
+    min-height: 200px; /* Aumento la altura mínima de los textarea */
+  }
+  
+  /* Estilos para los campos cuando están en foco */
+  input:focus, textarea:focus {
+    border-color: #007BFF;
+    background-color: #e6f1ff;
+    outline: none;
+  }
+
+  /* Ajustes para el espaciado entre los campos del formulario */
+  form input, form textarea {
+    font-size: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  /* Transiciones suaves para los inputs y textarea */
+  input[type="text"], input[type="email"], textarea {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #007bff;
+    background-color: #f4faff;
+  }
+  
+  /* Hacer que los inputs se alineen correctamente */
+  input[type="text"], input[type="email"], textarea {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Estilos adicionales para los botones y campos con foco */
+  input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #28a745;
+  }
+  
+  

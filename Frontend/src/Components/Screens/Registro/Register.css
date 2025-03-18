@@ -1,67 +1,134 @@
-.register-wrapper {
+/* Contenedor principal para toda la aplicación */
+.app-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f3ef; /* Fondo con tonos cálidos */
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f9f7f3, #e8e0d9); /* Fondo degradado cálido */
 }
 
-.register-container {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+/* Contenido principal que se expande dinámicamente */
+.main-content {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+  padding: 20px;
+  box-sizing: border-box;
   width: 100%;
-  max-width: 400px;
+  min-height: 100vh; /* Asegura que el contenedor siempre tenga altura suficiente */
+  overflow: auto; /* Permite el desplazamiento si es necesario */
 }
 
-h2 {
+/* Estilo de sección principal (contenedor del formulario u otros elementos) */
+.section {
+  width: 100%;
+  max-width: 500px; /* Limita el ancho de la sección */
+  background-color: #ffffff;
+  border-radius: 20px; /* Bordes más redondeados */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+  padding: 40px;
+  margin-top: 20px;
+  box-sizing: border-box;
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #8b5e3c;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Espacio entre los campos */
+  min-height: auto; /* Ajusta automáticamente a la cantidad de contenido */
+  flex-grow: 1; /* Hace que esta sección crezca si es necesario */
+  border: 3px solid #8b5e3c; /* Contorno alrededor del formulario */
 }
 
-.input-group {
-  margin-bottom: 0.8rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.3rem;
-  color: #6b4f36;
-}
-
+/* Estilos para los campos de formulario */
 input,
 select {
   width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #d3b8a5;
-  border-radius: 6px;
+  padding: 15px;
+  margin-top: 10px;
+  border: 2px solid #d3b8a5; /* Borde cálido */
+  border-radius: 12px; /* Bordes más redondeados */
+  background-color: #fff;
+  color: #5a4a42; /* Color de texto cálido */
+  outline: none;
+  font-size: 1em;
+  box-sizing: border-box;
+  text-align: left;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
-.show-password {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Borde más destacado al enfocar */
+input:focus,
+select:focus {
+  border-color: #8b5e3c; /* Borde más oscuro al enfocar */
+  box-shadow: 0 0 8px rgba(139, 94, 60, 0.5); /* Sombra más prominente */
+  transform: scale(1.02); /* Efecto de ligero aumento al enfocarse */
 }
 
+/* Estilo para el botón */
 button {
   width: 100%;
-  padding: 0.8rem;
-  background-color: #8b5e3c;
-  color: #ffffff;
+  padding: 15px;
+  background-color: #8b5e3c; /* Color cálido */
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px; /* Bordes más redondeados */
   cursor: pointer;
-  transition: background 0.3s ease;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 600; /* Texto en negrita */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
 }
 
 button:hover {
-  background-color: #6b4f36;
+  background-color: #6b4f36; /* Color más oscuro al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevación */
 }
 
+button:active {
+  transform: translateY(0); /* Efecto de clic */
+}
+
+/* Estilo para los mensajes de error */
 .error {
-  color: #d9534f;
-  text-align: center;
-  margin-top: 1rem;
+  color: #d32f2f;
+  background-color: #fbe9e7;
+  padding: 12px;
+  border: 1px solid #d32f2f;
+  border-radius: 12px; /* Bordes más redondeados */
+  margin-top: 15px;
+  font-size: 0.9em;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word; /* Asegura que el texto largo no desborde */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+/* Ajustes para la contraseña (para mantener el ojo dentro del input) */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 50px; /* Deja espacio para el ícono */
+  padding: 15px;
+  border: 2px solid #d3b8a5;
+  border-radius: 12px;
+  font-size: 1em;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8b5e3c; /* Color cálido */
+  font-size: 1.2em;
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+.toggle-password:hover {
+  color: #6b4f36; /* Color más oscuro al pasar el mouse */
 }

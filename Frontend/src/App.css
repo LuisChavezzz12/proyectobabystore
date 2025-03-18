@@ -124,6 +124,29 @@ button:hover {
   text-align: left;
 }
 
+/* Estilos para los enlaces de administrador */
+.admin-link {
+  color: #d32f2f; /* Rojo para destacar las opciones de administración */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.admin-link:hover {
+  color: #b71c1c; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Estilo especial cuando el admin está en la ruta de administración */
+.admin-page {
+  background-color: #fbe9e7; /* Fondo suave para las páginas de admin */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.admin-page h1 {
+  color: #d32f2f; /* Color rojo para el título en el panel de administración */
+}
+
 /* Estilos responsivos para dispositivos móviles y pantallas más pequeñas */
 @media (max-width: 768px) {
   .App-header {

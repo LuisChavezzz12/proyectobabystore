@@ -1,0 +1,114 @@
+/* 🍼 Contenedor principal con un fondo más claro */
+.admin-preguntas-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background: #fefdfb; /* 🎨 Un blanco cálido con un toque crema */
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5c8a6; /* 🎨 Un marrón suave */
+  }
+  
+  /* 🍼 Títulos */
+  h2 {
+    text-align: center;
+    color: #8b4513; /* 🎨 Marrón chocolate */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  p {
+    text-align: center;
+    color: #6d4c41; /* 🎨 Marrón claro */
+    font-size: 16px;
+  }
+  
+  /* 📦 Tarjetas de preguntas */
+  .pregunta-item {
+    background: #fffaf2; /* 🎨 Blanco con un toque marfil */
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #d2a679; /* 🎨 Marrón suave */
+  }
+  
+  /* ❓ Pregunta */
+  .pregunta-texto {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b4513; /* 🎨 Marrón chocolate */
+  }
+  
+  /* ✅ Respuesta */
+  .respuesta-texto {
+    font-size: 14px;
+    color: #6d4c41; /* 🎨 Marrón claro */
+    font-weight: 500;
+  }
+  
+  /* 📝 Formulario de respuesta */
+  .respuesta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  /* 📩 Input de respuesta */
+  .respuesta-form input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d2a679; /* 🎨 Marrón suave */
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fffaf0; /* 🎨 Fondo marfil */
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* ✨ Efecto cuando el usuario escribe */
+  .respuesta-form input:focus {
+    border-color: #8b4513; /* 🎨 Marrón más oscuro */
+  }
+  
+  /* 🎀 Botón de responder */
+  .respuesta-form button {
+    width: 100%;
+    background: #d2a679; /* 🎨 Marrón suave */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease-in-out;
+  }
+  
+  /* ✨ Efecto al pasar el mouse */
+  .respuesta-form button:hover {
+    background: #8b4513; /* 🎨 Marrón oscuro */
+    transform: scale(1.05);
+  }
+  
+  /* 📢 Mensajes de éxito o error */
+  .mensaje {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .mensaje.success {
+    color: #4caf50; /* 🎨 Verde éxito */
+    background: #e8f5e9;
+  }
+  
+  .mensaje.error {
+    color: #d32f2f; /* 🎨 Rojo error */
+    background: #fdecea;
+  }
+  

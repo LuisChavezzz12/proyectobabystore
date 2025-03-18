@@ -17,7 +17,7 @@ const EditarUsuario = () => {
     const obtenerUsuario = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/usuarios/${id}`
+          `https://backend-xi-ashen-51.vercel.app/usuarios/${id}`
         );
         setUsuario(response.data);
       } catch (error) {
@@ -37,7 +37,7 @@ const EditarUsuario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/usuarios/${id}`, {
+      await axios.put(`https://backend-xi-ashen-51.vercel.app/usuarios/${id}`, {
         role: usuario.role,
       });
       alert("✅ Rol actualizado correctamente");

@@ -11,7 +11,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/productos");
+        const response = await axios.get("https://backend-xi-ashen-51.vercel.app/productos");
         setProductos(response.data);
         setLoading(false);
       } catch (error) {

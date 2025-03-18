@@ -1,10 +1,8 @@
-
-
 .login-container {
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px; /* Reducido el padding */
+  padding: 30px;
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -17,45 +15,65 @@
 }
 
 h2 {
-  margin-bottom: 20px; /* Reducido el margen inferior */
-  color: #343a40; /* Color oscuro */
+  margin-bottom: 20px;
+  color: #343a40;
   font-size: 24px;
   font-weight: 600;
 }
 
 form div {
-  margin-bottom: 15px; /* Reducido el margen inferior */
+  margin-bottom: 15px;
   text-align: left;
 }
 
 label {
   display: block;
-  margin-bottom: 5px; /* Reducido el margen inferior */
-  color: #495057; /* Color gris oscuro */
+  margin-bottom: 5px;
+  color: #495057;
   font-size: 14px;
   font-weight: 500;
 }
 
-input {
+/* 🔹 Contenedor para el input con el ícono del ojo */
+.password-wrapper {
+  position: relative;
   width: 100%;
-  padding: 10px; /* Reducido el padding */
-  border: 1px solid #ced4da; /* Borde suave */
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
   border-radius: 8px;
   font-size: 14px;
   color: #495057;
   outline: none;
+  padding-right: 40px;
+  /* Espacio reservado para el ícono */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 🔹 Ícono del ojo alineado a la derecha dentro del input */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8b5e3c;
+  /* Marrón amigable */
+  font-size: 1.2em;
+}
+
 input:focus {
-  border-color: #80bdff; /* Borde azul al enfocar */
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave */
+  border-color: #80bdff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 button {
   width: 100%;
-  padding: 10px; /* Reducido el padding */
-  background-color: #007bff; /* Azul moderno */
+  padding: 10px;
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -66,28 +84,28 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  background-color: #0056b3;
   transform: translateY(-2px);
 }
 
 button:disabled {
-  background-color: #6c757d; /* Gris cuando está deshabilitado */
+  background-color: #6c757d;
   cursor: not-allowed;
   transform: none;
 }
 
 .error {
-  color: #dc3545; /* Rojo para errores */
+  color: #dc3545;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   border-radius: 8px;
-  padding: 8px; /* Reducido el padding */
-  margin-bottom: 15px; /* Reducido el margen inferior */
+  padding: 8px;
+  margin-bottom: 15px;
   font-size: 14px;
 }
 
 .register-link {
-  color: #007bff; /* Azul para enlaces */
+  color: #007bff;
   cursor: pointer;
   text-decoration: none;
   font-weight: 500;
@@ -95,11 +113,11 @@ button:disabled {
 }
 
 .register-link:hover {
-  color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  color: #0056b3;
   text-decoration: underline;
 }
 
-/* Spinner de carga */
+/* 🔹 Spinner de carga */
 .spinner {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-top: 3px solid #fff;
@@ -115,7 +133,51 @@ button:disabled {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Estilo para el contenedor de la contraseña con el ícono */
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 0.6rem;
+  padding-right: 40px;
+  /* Espacio para el ícono */
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8b5e3c;
+  /* Marrón amigable */
+  font-size: 1.2em;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #8b5e3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #6b4f36;
 }

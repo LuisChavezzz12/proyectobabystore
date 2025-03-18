@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Asegúrate de instalar axios
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../Imgs/logobabystore.png";
@@ -12,17 +11,25 @@ const WelcomePage = () => {
 
   // Usamos useEffect para obtener los datos del usuario logueado
   useEffect(() => {
-    // Aquí debes reemplazar la URL con la ruta de tu backend que retorne los datos del usuario
-    axios
-      .get("/auth/user")  // Asumiendo que tienes una ruta que devuelve los datos del usuario
-      .then((response) => {
-        setUserName(response.data.nombre);  // Suponiendo que el nombre del usuario está en 'response.data.nombre'
+    // Obtener el token desde localStorage
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      try {
+        // Decodificar el token
+        const decodedToken = JSON.parse(atob(token.split(".")[1]));
+        console.log("Decoded Token: ", decodedToken); // Verifica el contenido del token
+
+        // Asignar el nombre del usuario si está en el token
+        setUserName(decodedToken.username || "Usuario");  // El nombre ahora estará en decodedToken.nombre
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
         setLoading(false);
-      });
+      }
+    } else {
+      setLoading(false); // Si no hay token, simplemente termina la carga
+    }
   }, []);
 
   if (loading) {
@@ -67,7 +74,8 @@ const WelcomePage = () => {
               fontSize: "3rem",
             }}
           >
-            ¡Bienvenido a BabyStore, {userName}!
+            ¡Bienvenido a BabyStore, {userName ? userName : "Visitante"}!
+
           </h1>
 
           {/* Mensaje de bienvenida */}

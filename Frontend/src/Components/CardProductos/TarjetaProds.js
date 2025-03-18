@@ -49,7 +49,7 @@ function TarjetaProds({
           <Card.Text>{descripcion}</Card.Text>
         </div>
         <Link
-          to={`/product/${id}`}
+          to={`/detalle-producto/${id}`}
           state={{
             imagen,
             nombre,
@@ -60,7 +60,7 @@ function TarjetaProds({
             comentarios: comentarios || [],
             imagenesAdicionales: Array.isArray(imagenesAdicionales)
               ? imagenesAdicionales
-              : [], // Asegurarse de que sea un arreglo
+              : [], 
           }}
         >
           <Button

@@ -6,7 +6,6 @@ import logo from "../src/Components/Imgs/logobabystore.png";
 import NavScrollExample from "./Components/NavBar/NavBar";
 import ProductPage from "./Components/Screens/ProductPage/ProductPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import DetalleProducto from "./Components/Screens/DetalleProducto/DetalleProducto";
 import Footer from "./Components/Footer/Footer";
 import AcercaDe from "./Components/Screens/AcercaDe/AcercaDe";
 import Login from "./Components/Screens/Login/Login";
@@ -14,14 +13,21 @@ import RegisterForm from "./Components/Screens/Registro/Register";
 import Cloudinary from "./Components/Cloudinary/cloudinary";
 import SubirProducto from "./Components/Screens/SubirProd/SubirProd";
 import ProtectedRoute from "./Components/ProtectedRoute/protectedRoute";
-import AdminDashboard from "./Components/Screens/AdminDashboard/AdminDashboard"; // Pantalla del Admin
-import GestionarUsuarios from "./Components/Screens/GestionarUsuarios/GestionarUsuarios"; // Gestión de usuarios
-import PerfilAdmin from "./Components/Screens/PerfilAdmin/PerfilAdmin"; // Perfil de admin
-import EditarUsuario from "./Components/Screens/EditarUsuario/EditarUsuario";
-import EditarProducto from "./Components/Screens/EditarProducto/EditarProducto";
+import AdminDashboard from "./Components/Screens/AdminDashboard/AdminDashboard";
+import GestionarUsuarios from "./Components/Screens/GestionarUsuarios/GestionarUsuarios";
 import ContactForm from "./Components/Screens/Contacto/ContactoEmpresa";
 import WelcomePage from "./Components/Screens/Inicio/Inicio";
-import Perfil from "./Components/Screens/Perfil/Perfil"
+import DetalleProducto from "./Components/Screens/DetalleProducto/DetalleProducto";
+import EditarProducto from "./Components/Screens/EditarProducto/EditarProducto";
+import VerProducto from "./Components/Screens/VerProducto/VerProducto";
+import FormularioPreguntas from "./Components/Screens/FormularioPreguntas/FormularioPreguntas";
+import AdminPreguntas from "./Components/Screens/AdminPreguntas/AdminPreguntas";
+import RecuperarPassword from "./Components/Screens/Recuperar/RecuperarPassword";
+import VerificarRespuesta from "./Components/Screens/Recuperar/VerificarRespuesta";
+import RestablecerPassword from "./Components/Screens/Recuperar/RestablecerPassword";
+import ViewPerfil from "./Components/Screens/Perfil/ViewPerfil";
+import EditPerfil from "./Components/Screens/Perfil/EditPerfil";
+import EditAbout from "./Components/Screens/AcercaDe/EditAbout";
 
 function App() {
   return (
@@ -37,33 +43,37 @@ function App() {
           enlaces={[
             { etiqueta: "Inicio", href: "/Inicio" },
             { etiqueta: "Productos", href: "/Productos" },
-            { etiqueta: "Contacto", href: "/Contacto" },
+            { etiqueta: "Ubicanos", href: "/Contacto" },
             { etiqueta: "Acerca De", href: "/acerca-de" },
+            { etiqueta: "FAQ", href: "/preguntar" },
           ]}
-          desplegable={{
-            titulo: "Categorías",
-            elementos: [
-              { etiqueta: "Ropa", href: "/Ropa" },
-              { etiqueta: "Juguetes", href: "/Juguetes" },
-              { etiqueta: "Accesorios", href: "/Accesorios" },
-              { divisor: true },
-              { etiqueta: "Ofertas", href: "/Ofertas" },
-            ],
-          }}
           mostrarBusqueda={true}
         />
-
         <div className="main-content">
           <Routes>
             <Route path="/" element={<WelcomePage />} />
+            <Route path="/inicio" element={<WelcomePage />} />
             <Route path="/Productos" element={<ProductPage />} />
-            <Route path="/product/:id" element={<DetalleProducto />} />
             <Route path="/acerca-de" element={<AcercaDe />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<RegisterForm />} />
             <Route path="/contacto" element={<ContactForm />} />
-            <Route path="/perfil" element={<Perfil/>}></Route>
-            <Route path="/inicio" element={<WelcomePage />}></Route>
+            <Route path="/detalle-producto/:id" element={<DetalleProducto />} />
+            <Route path="/preguntar" element={<FormularioPreguntas />} />
+
+            {/* 📌 NUEVAS RUTAS PARA RECUPERAR CONTRASEÑA */}
+            <Route path="/recuperar" element={<RecuperarPassword />} />
+            <Route
+              path="/verificar-respuesta"
+              element={<VerificarRespuesta />}
+            />
+            <Route path="/restablecer" element={<RestablecerPassword />} />
+
+            {/* 🔹 Rutas de perfil */}
+            <Route path="/perfil" element={<ViewPerfil />} />
+            <Route path="/editar-perfil" element={<EditPerfil />} />
+
+            {/* 🔹 Rutas protegidas (solo admin) */}
             <Route
               path="/subir"
               element={
@@ -97,22 +107,6 @@ function App() {
               }
             />
             <Route
-              path="/perfil"
-              element={
-                <ProtectedRoute role="admin">
-                  <PerfilAdmin />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/editar-usuario/:id"
-              element={
-                <ProtectedRoute role="admin">
-                  <EditarUsuario />
-                </ProtectedRoute>
-              }
-            />
-            <Route
               path="/editar-producto/:id"
               element={
                 <ProtectedRoute role="admin">
@@ -120,9 +114,32 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/ver-producto/:id"
+              element={
+                <ProtectedRoute role="admin">
+                  <VerProducto />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin-preguntas"
+              element={
+                <ProtectedRoute role="admin">
+                  <AdminPreguntas />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/editar-acerca-de"
+              element={
+                <ProtectedRoute role="admin">
+                  <EditAbout />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
-
         <Footer />
       </div>
     </Router>

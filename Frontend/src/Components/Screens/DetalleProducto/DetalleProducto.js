@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./DetalleProducto.css";
 
 function DetalleProducto() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [showMessage, setShowMessage] = useState(false);
   const {
     imagen,
     nombre,
@@ -15,7 +16,7 @@ function DetalleProducto() {
     imagenesAdicionales,
   } = location.state || {};
 
-  // Asegurarse de que imagenesAdicionales sea un arreglo
+ 
   const imagenesAdicionalesArray = Array.isArray(imagenesAdicionales)
     ? imagenesAdicionales
     : [];
@@ -25,27 +26,41 @@ function DetalleProducto() {
   }
 
   const handleRegresar = () => {
-    navigate("/inicio");
+    navigate("/productos");
+  };
+
+  const handleComprar = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/formulario-compra", { state: { producto: nombre, precio } });
+    } else {
+      setShowMessage(true);
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    }
   };
 
   return (
     <div className="product-detail-page">
-      {/* Imágenes del producto */}
+      {showMessage && (
+        <div className="login-message">
+          <p>¡Por favor, inicie sesión!</p>
+        </div>
+      )}
       <div className="product-images">
-        {/* Imagen principal */}
         <img
           className="main-image"
-          src={imagen} // URL completa de la imagen principal
+          src={imagen}
           alt={nombre}
         />
 
-        {/* Imágenes adicionales */}
         <div className="additional-images">
           {imagenesAdicionalesArray.length > 0 ? (
             imagenesAdicionalesArray.map((img, index) => (
               <img
                 key={index}
-                src={img} // URL completa de la imagen adicional
+                src={img}
                 alt={`Imagen adicional ${index + 1}`}
                 className="additional-image"
               />
@@ -56,7 +71,6 @@ function DetalleProducto() {
         </div>
       </div>
 
-      {/* Información del producto */}
       <div className="product-info">
         <h1>{nombre}</h1>
         <div className="price">Precio: ${precio}</div>
@@ -75,8 +89,13 @@ function DetalleProducto() {
             )}
           </ul>
         </div>
+
         <button className="add-to-cart-button" onClick={handleRegresar}>
           Regresar
+        </button>
+        
+        <button className="buy-now-button" onClick={handleComprar}>
+          Comprar
         </button>
       </div>
     </div>

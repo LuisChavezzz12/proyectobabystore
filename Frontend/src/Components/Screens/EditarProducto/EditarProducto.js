@@ -21,7 +21,7 @@ const EditarProducto = () => {
     const obtenerProducto = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/productos/${id}`
+          `https://backend-alpha-neon.vercel.app/productos/${id}`
         );
         const data = response.data;
         setProducto(data);
@@ -65,7 +65,7 @@ const EditarProducto = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:5000/productos/${id}`, producto);
+      await axios.put(`https://backend-xi-ashen-51.vercel.app/productos/${id}`, producto);
       alert("✅ Producto actualizado correctamente");
       navigate("/dashboard"); // Redirigir al dashboard después de guardar
     } catch (error) {

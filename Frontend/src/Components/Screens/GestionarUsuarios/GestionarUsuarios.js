@@ -12,7 +12,7 @@ const GestionarUsuarios = () => {
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/usuarios');
+        const response = await axios.get('https://backend-xi-ashen-51.vercel.app/usuarios');
         setUsuarios(response.data);
         setLoading(false);
       } catch (error) {
@@ -36,7 +36,7 @@ const GestionarUsuarios = () => {
       if (!confirmar) return; // Si el usuario cancela, no hacer nada
 
       // Eliminar el usuario
-      await axios.delete(`http://localhost:5000/usuarios/${userId}`);
+      await axios.delete(`https://backend-xi-ashen-51.vercel.app/usuarios/${userId}`);
 
       // Actualizar la lista de usuarios eliminando el usuario borrado
       setUsuarios(usuarios.filter((user) => user._id !== userId));
@@ -49,7 +49,7 @@ const GestionarUsuarios = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      await axios.put(`http://localhost:5000/usuarios/${userId}`, { role: newRole });
+      await axios.put(`https://backend-xi-ashen-51.vercel.app/usuarios/${userId}`, { role: newRole });
       alert("Rol actualizado correctamente");
       setUsuarios(usuarios.map((usuario) => 
         usuario._id === userId ? { ...usuario, role: newRole } : usuario

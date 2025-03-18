@@ -33,7 +33,7 @@ function SubirProducto() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/productos",
+        "https://backend-xi-ashen-51.vercel.app/productos",
         nuevoProducto
       );
       alert("✅ Producto agregado correctamente");

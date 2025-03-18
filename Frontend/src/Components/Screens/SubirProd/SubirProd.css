@@ -1,44 +1,55 @@
-/* Estilos generales */
+/* Contenedor principal */
 .subir-producto-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
+  width: 90%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: linear-gradient(to bottom, #fef9f3, #f5e6d9); /* Degradado suave */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(111, 79, 55, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.subir-producto-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .subir-producto-container h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: #333;
+  color: #6f4f37;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Formulario */
 .subir-producto-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.8rem;
 }
 
 .subir-producto-form input,
 .subir-producto-form textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e0e0e0;
+  padding: 14px;
+  border: 2px solid transparent;
   border-radius: 8px;
   font-size: 1rem;
-  color: #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease-in-out;
 }
 
 .subir-producto-form input:focus,
 .subir-producto-form textarea:focus {
-  border-color: #007bff;
+  border-color: #6f4f37;
+  background: #fff;
+  box-shadow: 0px 4px 12px rgba(111, 79, 55, 0.15);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 .subir-producto-form textarea {
@@ -48,20 +59,22 @@
 
 /* Botón */
 .subir-producto-form button {
-  padding: 0.75rem;
-  background-color: #007bff;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #6f4f37;
   color: #fff;
-  font-size: 1rem;
-  font-weight: 500;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .subir-producto-form button:hover {
-  background-color: #0056b3;
+  background: #4e3729;
   transform: translateY(-2px);
+  box-shadow: 0px 8px 15px rgba(111, 79, 55, 0.2);
 }
 
 .subir-producto-form button:active {
@@ -71,35 +84,43 @@
 /* Placeholders */
 .subir-producto-form input::placeholder,
 .subir-producto-form textarea::placeholder {
-  color: #999;
+  color: #8f7a66;
+  font-style: italic;
+  font-size: 0.95rem;
+  transition: color 0.3s ease-in-out;
 }
 
-/* Estilos para los campos de características e imágenes adicionales */
-.subir-producto-form input[type="text"] {
-  background-color: #f9f9f9;
-}
-
-/* Efecto hover para los campos */
-.subir-producto-form input:hover,
-.subir-producto-form textarea:hover {
-  border-color: #007bff;
-}
-
-/* Responsive */
+/* Mejor visualización en dispositivos móviles */
 @media (max-width: 768px) {
   .subir-producto-container {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .subir-producto-container h2 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
   }
 
   .subir-producto-form input,
   .subir-producto-form textarea {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
+  .subir-producto-form button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .subir-producto-container {
+    padding: 1.5rem;
+  }
+
+  .subir-producto-form {
+    gap: 1.5rem;
+  }
+
+  .subir-producto-form input,
+  .subir-producto-form textarea,
   .subir-producto-form button {
     font-size: 0.9rem;
   }

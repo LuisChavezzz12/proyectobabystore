@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importación correcta
 import "./Register.css";
 
 const RegisterForm = () => {
@@ -25,10 +26,9 @@ const RegisterForm = () => {
     "¿Cuál es el nombre de tu profesor favorito?",
   ];
 
-  // Función de validación en tiempo real
   const validateField = (name, value) => {
     let error = "";
-    
+
     switch (name) {
       case "username":
         if (!value) error = "El nombre de usuario es obligatorio";
@@ -46,7 +46,8 @@ const RegisterForm = () => {
         else if (!phoneRegex.test(value)) error = "Debe tener 10 dígitos";
         break;
       case "password":
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+        const passwordRegex =
+          /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
         if (!value) error = "La contraseña es obligatoria";
         else if (!passwordRegex.test(value))
           error = "Mínimo 6 caracteres, 1 mayúscula y 1 especial";
@@ -66,15 +67,13 @@ const RegisterForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Validación específica para el teléfono
     if (name === "phone") {
       if (!/^\d*$/.test(value)) return;
       if (value.length > 10) return;
     }
 
     setFormData({ ...formData, [name]: value });
-    
-    // Validación en tiempo real
+
     const error = validateField(name, value);
     setErrors((prev) => ({
       ...prev,
@@ -82,7 +81,6 @@ const RegisterForm = () => {
     }));
   };
 
-  // Validación completa antes de enviar
   const validateForm = () => {
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
@@ -95,21 +93,24 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setLoading(true);
     try {
-      console.log('Datos enviados desde el frontend:', formData);
-      const response = await axios.post("http://localhost:5000/usuarios/", formData, {
-        headers: { 'Content-Type': 'application/json' }
-      });
+      const response = await axios.post(
+        "https://backend-xi-ashen-51.vercel.app/usuarios/",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
       }
-      navigate("/login", { state: { successMessage: "Registro exitoso. Inicia sesión." } });
+      navigate("/login", {
+        state: { successMessage: "Registro exitoso. Inicia sesión." },
+      });
     } catch (error) {
       setErrors({
         submit: error.response?.data.message || "Error al registrar el usuario",
@@ -158,26 +159,25 @@ const RegisterForm = () => {
             />
             {errors.phone && <p className="error">{errors.phone}</p>}
           </div>
-          <div>
+          <div className="password-wrapper">
             <label>Contraseña:</label>
-            <div className="password-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <button
-                type="button"
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Ocultar" : "Mostrar"}
-              </button>
-            </div>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            {/* Ícono siempre visible dentro del input */}
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
+
           <div>
             <label>Pregunta Secreta:</label>
             <select
@@ -193,7 +193,9 @@ const RegisterForm = () => {
                 </option>
               ))}
             </select>
-            {errors.secretQuestion && <p className="error">{errors.secretQuestion}</p>}
+            {errors.secretQuestion && (
+              <p className="error">{errors.secretQuestion}</p>
+            )}
           </div>
           <div>
             <label>Respuesta Secreta:</label>
@@ -204,7 +206,9 @@ const RegisterForm = () => {
               onChange={handleChange}
               required
             />
-            {errors.secretAnswer && <p className="error">{errors.secretAnswer}</p>}
+            {errors.secretAnswer && (
+              <p className="error">{errors.secretAnswer}</p>
+            )}
           </div>
           {errors.submit && <p className="error">{errors.submit}</p>}
           <button type="submit" disabled={loading}>
