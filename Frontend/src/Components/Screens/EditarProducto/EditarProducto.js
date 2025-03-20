@@ -21,7 +21,7 @@ const EditarProducto = () => {
     const obtenerProducto = async () => {
       try {
         const response = await axios.get(
-          `https://backend-alpha-neon.vercel.app/productos/${id}`
+          `https://backend-xi-ashen-51.vercel.app/productos/${id}`
         );
         const data = response.data;
         setProducto(data);

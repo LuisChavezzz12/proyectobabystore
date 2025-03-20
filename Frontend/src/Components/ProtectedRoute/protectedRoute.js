@@ -1,4 +1,3 @@
-// Components/ProtectedRoute.js
 import React from "react";
 import { Navigate } from "react-router-dom";
 
@@ -9,13 +8,19 @@ const ProtectedRoute = ({ children, role }) => {
     return <Navigate to="/login" />;
   }
 
-  const decodedToken = JSON.parse(atob(token.split(".")[1]));
+  try {
+    const decodedToken = JSON.parse(atob(token.split(".")[1]));
 
-  if (role && decodedToken.role !== role) {
-    return <Navigate to="/" />;
+    if (role && decodedToken.role !== role) {
+      return <Navigate to="/" />;
+    }
+
+    return children;
+  } catch (error) {
+    console.error("❌ Error al decodificar el token:", error);
+    localStorage.removeItem("token");
+    return <Navigate to="/login" />;
   }
-
-  return children;
 };
 
 export default ProtectedRoute;

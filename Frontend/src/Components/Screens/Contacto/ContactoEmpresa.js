@@ -1,58 +1,98 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./ContactoEmpresa.css";
 
 const ContactoEmpresa = () => {
-  const lat = 21.156331; // Coordenada de latitud
-  const lng = -98.386653; // Coordenada de longitud
+  const [contacto, setContacto] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+  useEffect(() => {
+    axios
+      .get("https://backend-xi-ashen-51.vercel.app/contacto") // 🔗 API real
+      .then((response) => {
+        setContacto(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Cargando datos de contacto...</p>;
+  if (!contacto) return <p>No se encontraron datos de contacto.</p>;
 
   return (
     <div className="contacto-empresa-container">
-      <h2>📞 Contacto</h2>
+      <h2>📞 Información de Contacto</h2>
 
       <div className="info-contacto">
         <p>
-          🏢 <strong>Nombre de la empresa:</strong> BabyCare Store
+          🏢 <strong>Nombre de la empresa:</strong> {contacto.nombreEmpresa}
         </p>
         <p>
-          📍 <strong>Dirección:</strong> Todos Por Hidalgo, Cachapala 77B, Huejutla de reyes. Hidalgo
+          📍 <strong>Dirección:</strong> {contacto.direccion}
         </p>
         <p>
-          🌍 <strong>Ubicación en Google Maps:</strong>
-          <a
-            href={googleMapsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-maps"
-          >
-            Ver en el mapa
-          </a>
+          📲 <strong>Teléfono:</strong> {contacto.telefono}
         </p>
         <p>
-          📲 <strong>Teléfono:</strong> +52 773 385 5315
+          📧 <strong>Correo electrónico:</strong> {contacto.correo}
         </p>
-        <p>
-          📧 <strong>Correo electrónico:</strong>{" "}
-          chavezvargasluisjesus@gmail.com
-        </p>
-        <p>
-          🕒 <strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a
-          6:00 PM
-        </p>
+
+        <h3>🕒 Horarios de Atención</h3>
+        <ul>
+          <li>
+            <strong>Lunes a Viernes:</strong>{" "}
+            {contacto.horarios_atencion.lunes_viernes}
+          </li>
+          <li>
+            <strong>Sábado:</strong> {contacto.horarios_atencion.sabado}
+          </li>
+          <li>
+            <strong>Domingo:</strong> {contacto.horarios_atencion.domingo}
+          </li>
+        </ul>
+
+        <h3>🌍 Redes Sociales</h3>
+        <ul>
+          <li>
+            📘{" "}
+            <a
+              href={contacto.redes_sociales.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </li>
+          <li>
+            📸{" "}
+            <a
+              href={contacto.redes_sociales.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </li>
+        </ul>
       </div>
-      <h3>🗺️ Ubicación</h3>
-      <div className="mapa-container">
-        <iframe
-          title="Ubicación de la empresa"
-          src={`https://maps.google.com/maps?q=${lat},${lng}&z=17&output=embed`} // Mapa embebido
-          width="100%"
-          height="300"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
+
+      {contacto.ubicacion && (
+        <div className="mapa-preview">
+          <h3>🗺️ Ubicación</h3>
+          <iframe
+            title="Ubicación de la empresa"
+            src={contacto.ubicacion}
+            width="100%"
+            height="300"
+            style={{ border: 0, borderRadius: "10px" }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      )}
     </div>
   );
 };

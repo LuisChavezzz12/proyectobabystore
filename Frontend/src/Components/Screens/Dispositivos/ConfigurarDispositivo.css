@@ -1,0 +1,85 @@
+/* 🔹 Contenedor principal */
+#configurar-container {
+    font-family: "Poppins", sans-serif;
+    background-color: #f5e6d3; /* Fondo cafecito claro */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* 🔹 Título */
+  #configurar-titulo {
+    color: #5a3e36; /* Café oscuro */
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* 🔹 Mensaje de error o éxito */
+  #configurar-mensaje {
+    background-color: #f8d7da;
+    color: #b0413e;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+  }
+  
+  /* 🔹 Labels */
+  .configurar-label {
+    display: block;
+    font-weight: bold;
+    color: #5a3e36;
+    margin: 10px 0 5px;
+    text-align: left;
+  }
+  
+  /* 🔹 Inputs */
+  .configurar-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d3a588;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .configurar-input:focus {
+    border-color: #8b5e3b;
+  }
+  
+  /* 🔹 Botón de guardar */
+  #btn-guardar {
+    background-color: #8b5e3b;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  #btn-guardar:hover {
+    background-color: #704a2e;
+  }
+  
+  /* 🔹 Mensaje de carga */
+  #configurar-cargando {
+    font-size: 16px;
+    color: #5a3e36;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  

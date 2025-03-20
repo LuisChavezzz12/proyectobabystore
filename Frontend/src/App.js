@@ -28,6 +28,9 @@ import RestablecerPassword from "./Components/Screens/Recuperar/RestablecerPassw
 import ViewPerfil from "./Components/Screens/Perfil/ViewPerfil";
 import EditPerfil from "./Components/Screens/Perfil/EditPerfil";
 import EditAbout from "./Components/Screens/AcercaDe/EditAbout";
+import DispositivosUsuario from "./Components/Screens/Dispositivos/DispositivoUsuario";
+import ConfigurarDispositivo from "./Components/Screens/Dispositivos/ConfigurarDispositivos";
+import ESP32Control from "./Components/Screens/Esp32Monitoreo/ESP32Control";
 
 function App() {
   return (
@@ -46,6 +49,7 @@ function App() {
             { etiqueta: "Ubicanos", href: "/Contacto" },
             { etiqueta: "Acerca De", href: "/acerca-de" },
             { etiqueta: "FAQ", href: "/preguntar" },
+            { etiqueta: "Dispositivos", href: "/dispositivos" },
           ]}
           mostrarBusqueda={true}
         />
@@ -60,8 +64,10 @@ function App() {
             <Route path="/contacto" element={<ContactForm />} />
             <Route path="/detalle-producto/:id" element={<DetalleProducto />} />
             <Route path="/preguntar" element={<FormularioPreguntas />} />
+            <Route path="/dispositivos" element={<DispositivosUsuario />} />
+            <Route path="/configurar-dispositivo/:id" element={<ConfigurarDispositivo />} />
+            <Route path="/administrar-dispositivo" element={<ESP32Control />} /> {/* ✅ Agregado */}
 
-            {/* 📌 NUEVAS RUTAS PARA RECUPERAR CONTRASEÑA */}
             <Route path="/recuperar" element={<RecuperarPassword />} />
             <Route
               path="/verificar-respuesta"

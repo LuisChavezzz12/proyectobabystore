@@ -79,8 +79,6 @@ const AdminDashboard = () => {
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Precio</th>
-              <th>Descripción</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -88,8 +86,6 @@ const AdminDashboard = () => {
             {productos.map((producto) => (
               <tr key={producto._id}>
                 <td>{producto.nombre}</td>
-                <td>${producto.precio}</td>
-                <td>{producto.descripcion}</td>
                 <td>
                   <button className="view-button" onClick={() => handleView(producto)}>
                     Ver

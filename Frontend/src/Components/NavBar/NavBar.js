@@ -63,9 +63,7 @@ function BarraNavegacion({ marca, enlaces }) {
                 </Nav.Link>
 
                 <NavDropdown title={<span className="text-danger">Productos</span>} id="navbarScrollingDropdown" className="text-danger mx-2">
-                  <NavDropdown.Item as={Link} to="/productos" className="text-danger">
-                    Ver Productos
-                  </NavDropdown.Item>
+                 
                   <NavDropdown.Item as={Link} to="/subirp" className="text-danger">
                     Subir Producto
                   </NavDropdown.Item>

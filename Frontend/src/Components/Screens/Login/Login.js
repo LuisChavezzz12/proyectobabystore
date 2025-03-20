@@ -53,14 +53,15 @@ const Login = () => {
       // Guardar el token en localStorage
       localStorage.setItem("token", response.data.token);
 
-      // Decodificar el token para obtener el rol del usuario
+      // 🔥 Decodificar el token para extraer userId
       const decodedToken = JSON.parse(atob(response.data.token.split(".")[1]));
+      localStorage.setItem("userId", decodedToken.userId); // ✅ Guardar userId en localStorage
 
       // Redirigir según el rol
       if (decodedToken.role === "admin") {
-        navigate("/inicio"); // Ruta para administradores
+        navigate("/inicio");
       } else {
-        navigate("/"); // Ruta para usuarios normales
+        navigate("/");
       }
     } catch (error) {
       if (error.response && error.response.data.message) {

@@ -1,24 +1,25 @@
-/* Contenedor principal */
+/* 🎨 Estilos generales del contenedor */
 .subir-producto-container {
   width: 90%;
   max-width: 800px;
   margin: 3rem auto;
-  padding: 3rem;
-  background: linear-gradient(to bottom, #fef9f3, #f5e6d9); /* Degradado suave */
+  padding: 2.5rem;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(111, 79, 55, 0.3);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #d1bfa6;
   transition: all 0.3s ease-in-out;
 }
 
 .subir-producto-container:hover {
   transform: scale(1.02);
-  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* 📝 Título principal */
 .subir-producto-container h2 {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: bold;
   color: #6f4f37;
   text-align: center;
   margin-bottom: 2rem;
@@ -26,42 +27,71 @@
   letter-spacing: 1px;
 }
 
-/* Formulario */
+/* 📄 Estilos del formulario */
 .subir-producto-form {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
+/* 🏷️ Etiquetas */
+.subir-producto-form label {
+  font-weight: bold;
+  color: #6f4f37;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 1rem;
+}
+
+/* ✍️ Inputs y Textareas */
 .subir-producto-form input,
 .subir-producto-form textarea {
   width: 100%;
-  padding: 14px;
-  border: 2px solid transparent;
+  padding: 12px;
+  border: 2px solid #d1bfa6;
   border-radius: 8px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
+  color: #333;
   transition: all 0.3s ease-in-out;
+  font-family: 'Arial', sans-serif;
 }
 
+/* ✏️ Cuando el usuario enfoca un campo */
 .subir-producto-form input:focus,
 .subir-producto-form textarea:focus {
   border-color: #6f4f37;
-  background: #fff;
+  background-color: #fff;
   box-shadow: 0px 4px 12px rgba(111, 79, 55, 0.15);
   outline: none;
 }
 
+/* 📜 Textareas específicos */
 .subir-producto-form textarea {
   resize: vertical;
   min-height: 120px;
+  background-color: #fff !important;
 }
 
-/* Botón */
+/* 🏷️ Placeholder visible */
+.subir-producto-form input::placeholder,
+.subir-producto-form textarea::placeholder {
+  color: #8f7a66;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* 🎨 Separación entre campos */
+.subir-producto-form input,
+.subir-producto-form textarea {
+  margin-bottom: 15px;
+}
+
+/* 🔘 Botón principal */
 .subir-producto-form button {
   padding: 14px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: bold;
   text-transform: uppercase;
   background: #6f4f37;
   color: #fff;
@@ -81,16 +111,7 @@
   transform: translateY(0);
 }
 
-/* Placeholders */
-.subir-producto-form input::placeholder,
-.subir-producto-form textarea::placeholder {
-  color: #8f7a66;
-  font-style: italic;
-  font-size: 0.95rem;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Mejor visualización en dispositivos móviles */
+/* 📱 Diseño responsivo */
 @media (max-width: 768px) {
   .subir-producto-container {
     padding: 2rem;
@@ -98,6 +119,10 @@
 
   .subir-producto-container h2 {
     font-size: 1.8rem;
+  }
+
+  .subir-producto-form label {
+    font-size: 1rem;
   }
 
   .subir-producto-form input,
@@ -116,11 +141,18 @@
   }
 
   .subir-producto-form {
-    gap: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .subir-producto-form label {
+    font-size: 0.95rem;
   }
 
   .subir-producto-form input,
-  .subir-producto-form textarea,
+  .subir-producto-form textarea {
+    font-size: 0.9rem;
+  }
+
   .subir-producto-form button {
     font-size: 0.9rem;
   }
