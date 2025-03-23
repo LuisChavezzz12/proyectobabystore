@@ -1,0 +1,375 @@
+/* Main container styles */
+.baby-monitor-container {
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.main-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.loading-message {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Grid layout for components */
+.monitor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .monitor-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card styles */
+.monitor-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Sound Monitor styles */
+.status-display {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.status-label {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.status-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.sound-visualizer {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.sound-bars {
+  display: flex;
+  height: 14rem;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.sound-bar {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.state-indicators {
+  position: absolute;
+  top: 1rem;
+  right: 0.5rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.indicator {
+  font-size: 0.75rem;
+}
+
+.indicator.crying {
+  color: #ef4444;
+}
+
+.indicator.active {
+  color: #f59e0b;
+}
+
+.indicator.calm {
+  color: #10b981;
+}
+
+.indicator.silent {
+  color: #9ca3af;
+}
+
+.cry-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-outer {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  opacity: 0.3;
+}
+
+.pulse-inner {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  opacity: 0.7;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.sound-level {
+  text-align: center;
+}
+
+.decibel-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.status-description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.emoji-status {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.emoji {
+  font-size: 3.75rem;
+}
+
+.emoji.sleeping {
+  color: #10b981;
+}
+
+.emoji.active {
+  color: #f59e0b;
+}
+
+.emoji.crying {
+  color: #ef4444;
+}
+
+/* Crib Control styles */
+.sensors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sensor-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.sensor-box.sound-status {
+  grid-column: span 2;
+}
+
+.sensor-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.thermometer {
+  position: relative;
+  height: 6rem;
+  width: 1.5rem;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  margin: 0 auto 0.5rem;
+  overflow: hidden;
+}
+
+.thermometer-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transition: all 1s ease-in-out;
+  border-radius: 999px;
+}
+
+.thermometer-bulb {
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+}
+
+.humidity-display {
+  margin: 0 auto;
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.humidity-icon {
+  font-size: 2.5rem;
+}
+
+.sensor-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.sound-state {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.actuators-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.actuator-btn {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  border: none;
+  cursor: pointer;
+}
+
+.actuator-btn.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.actuator-icon {
+  font-size: 1.5rem;
+}
+
+.actuator-name {
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.actuator-state {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.music-player {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.player-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.control-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.control-btn:hover {
+  background-color: #d1d5db;
+}
+
+.control-btn.play {
+  font-size: 1.5rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2.5rem 0;
+  color: #ef4444;
+}
+
+.bienvenida-texto {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #444;
+  text-align: center;
+}

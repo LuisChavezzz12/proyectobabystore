@@ -30,7 +30,8 @@ import EditPerfil from "./Components/Screens/Perfil/EditPerfil";
 import EditAbout from "./Components/Screens/AcercaDe/EditAbout";
 import DispositivosUsuario from "./Components/Screens/Dispositivos/DispositivoUsuario";
 import ConfigurarDispositivo from "./Components/Screens/Dispositivos/ConfigurarDispositivos";
-import ESP32Control from "./Components/Screens/Esp32Monitoreo/ESP32Control";
+import CunaControl from "./Components/Screens/Esp32Monitoreo/CunaControl";
+import EditarUsuario from "./Components/Screens/EditarUsuario/EditarUsuario";
 
 function App() {
   return (
@@ -69,7 +70,7 @@ function App() {
               path="/configurar-dispositivo/:id"
               element={<ConfigurarDispositivo />}
             />
-            <Route path="/administrar-dispositivo" element={<ESP32Control />} />{" "}
+            <Route path="/administrar-dispositivo" element={<CunaControl />} />
             {/* ✅ Agregado */}
             <Route path="/recuperar" element={<RecuperarPassword />} />
             <Route
@@ -142,6 +143,14 @@ function App() {
               element={
                 <ProtectedRoute role="admin">
                   <EditAbout />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/editar-usuario/:id"
+              element={
+                <ProtectedRoute role="admin">
+                  <EditarUsuario />
                 </ProtectedRoute>
               }
             />

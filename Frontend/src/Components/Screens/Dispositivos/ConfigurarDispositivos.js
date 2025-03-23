@@ -65,14 +65,6 @@ function ConfigurarDispositivo() {
         className="configurar-input"
       />
 
-      <label className="configurar-label">IP del Dispositivo:</label>
-      <input
-        type="text"
-        value={ip}
-        onChange={(e) => setIp(e.target.value)}
-        className="configurar-input"
-      />
-
       <button id="btn-guardar" onClick={handleGuardar}>Guardar</button>
     </div>
   );

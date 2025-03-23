@@ -38,8 +38,10 @@ function DispositivosUsuario() {
     navigate(`/configurar-dispositivo/${id}`);
   };
 
-  const handleAdministrar = (id) => {
-    navigate(`/administrar-dispositivo/${id}`);
+  const handleAdministrar = (id, nombreDispositivo) => {
+    navigate(`/administrar-dispositivo/`, {
+      state: { nombreDispositivo },
+    });
   };
 
   return (
@@ -81,7 +83,12 @@ function DispositivosUsuario() {
                   <button
                     id="btn-administrar"
                     className="btn-dispositivo"
-                    onClick={() => handleAdministrar(dispositivo._id)}
+                    onClick={() =>
+                      handleAdministrar(
+                        dispositivo._id,
+                        dispositivo.nombreDispositivo
+                      )
+                    }
                   >
                     Administrar
                   </button>

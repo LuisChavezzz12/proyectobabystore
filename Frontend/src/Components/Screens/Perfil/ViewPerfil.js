@@ -40,24 +40,36 @@ const ViewProfile = () => {
       {userData ? (
         <div id="profile-details">
           <div className="profile-field">
-            <label htmlFor="username">Nombre de Usuario:</label>
-            <p id="username">{userData.username}</p>
+            <label>👤 Nombre de Usuario:</label>
+            <p>{userData.username}</p>
           </div>
           <div className="profile-field">
-            <label htmlFor="email">Correo Electrónico:</label>
-            <p id="email">{userData.email}</p>
+            <label>📧 Correo Electrónico:</label>
+            <p>{userData.email}</p>
           </div>
           <div className="profile-field">
-            <label htmlFor="phone">Teléfono:</label>
-            <p id="phone">{userData.phone}</p>
+            <label>📱 Teléfono:</label>
+            <p>{userData.phone}</p>
           </div>
           <div className="profile-field">
-            <label htmlFor="secret-question">Pregunta Secreta:</label>
-            <p id="secret-question">{userData.secretQuestion}</p>
+            <label>🔐 Rol:</label>
+            <p>{userData.role}</p>
+          </div>
+          <div className="profile-field">
+            <label>❓ Pregunta Secreta:</label>
+            <p>{userData.secretQuestion}</p>
+          </div>
+          <div className="profile-field">
+            <label>🗝️ Respuesta Secreta:</label>
+            <p>{userData.secretAnswer}</p>
+          </div>
+          <div className="profile-field">
+            <label>🔑 Contraseña (encriptada):</label>
+            <p>{userData.password}</p>
           </div>
         </div>
       ) : (
-        <p>Cargando...</p>
+        <p>Cargando perfil...</p>
       )}
     </div>
   );
