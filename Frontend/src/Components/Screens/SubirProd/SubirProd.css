@@ -1,159 +1,74 @@
-/* 🎨 Estilos generales del contenedor */
 .subir-producto-container {
-  width: 90%;
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2.5rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid #d1bfa6;
-  transition: all 0.3s ease-in-out;
+  /* Aumentamos el ancho para que no se vea tan alto */
+  max-width: 600px;
+  /* Más espacio arriba/abajo y a los lados */
+  margin: 30px auto;
+  /* Reducimos un poco el padding para que no se vea tan "alto" */
+  padding: 15px 20px;
+  background: #fffaf2;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.subir-producto-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* 📝 Título principal */
 .subir-producto-container h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #6f4f37;
   text-align: center;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 1.5em;
+  color: #3e2723;
+  margin-bottom: 10px;
 }
 
-/* 📄 Estilos del formulario */
 .subir-producto-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  /* Reducimos la brecha vertical */
+  gap: 6px;
 }
 
-/* 🏷️ Etiquetas */
 .subir-producto-form label {
-  font-weight: bold;
-  color: #6f4f37;
-  margin-bottom: 6px;
-  display: block;
-  font-size: 1rem;
+  font-size: 0.85em;
+  color: #5d4037;
 }
 
-/* ✍️ Inputs y Textareas */
 .subir-producto-form input,
 .subir-producto-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #d1bfa6;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #333;
-  transition: all 0.3s ease-in-out;
-  font-family: 'Arial', sans-serif;
+  padding: 6px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* ✏️ Cuando el usuario enfoca un campo */
-.subir-producto-form input:focus,
-.subir-producto-form textarea:focus {
-  border-color: #6f4f37;
-  background-color: #fff;
-  box-shadow: 0px 4px 12px rgba(111, 79, 55, 0.15);
-  outline: none;
-}
-
-/* 📜 Textareas específicos */
 .subir-producto-form textarea {
   resize: vertical;
-  min-height: 120px;
-  background-color: #fff !important;
+  min-height: 60px;
 }
 
-/* 🏷️ Placeholder visible */
-.subir-producto-form input::placeholder,
-.subir-producto-form textarea::placeholder {
-  color: #8f7a66;
-  font-style: italic;
-  font-size: 0.95rem;
-}
-
-/* 🎨 Separación entre campos */
-.subir-producto-form input,
-.subir-producto-form textarea {
-  margin-bottom: 15px;
-}
-
-/* 🔘 Botón principal */
+/* Botones más pequeños */
 .subir-producto-form button {
-  padding: 14px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: #6f4f37;
-  color: #fff;
+  padding: 5px 8px;
+  font-size: 0.85em;
+  background-color: #8d6e63;
+  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
 .subir-producto-form button:hover {
-  background: #4e3729;
-  transform: translateY(-2px);
-  box-shadow: 0px 8px 15px rgba(111, 79, 55, 0.2);
+  background-color: #6d4c41;
 }
 
-.subir-producto-form button:active {
-  transform: translateY(0);
+/* Botón para alternar Cloudinary aún más compacto */
+.toggle-cloudinary-button {
+  background-color: #a1887f;
+  color: white;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  cursor: pointer;
+  margin-top: 5px;
 }
 
-/* 📱 Diseño responsivo */
-@media (max-width: 768px) {
-  .subir-producto-container {
-    padding: 2rem;
-  }
-
-  .subir-producto-container h2 {
-    font-size: 1.8rem;
-  }
-
-  .subir-producto-form label {
-    font-size: 1rem;
-  }
-
-  .subir-producto-form input,
-  .subir-producto-form textarea {
-    font-size: 0.95rem;
-  }
-
-  .subir-producto-form button {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .subir-producto-container {
-    padding: 1.5rem;
-  }
-
-  .subir-producto-form {
-    gap: 1.2rem;
-  }
-
-  .subir-producto-form label {
-    font-size: 0.95rem;
-  }
-
-  .subir-producto-form input,
-  .subir-producto-form textarea {
-    font-size: 0.9rem;
-  }
-
-  .subir-producto-form button {
-    font-size: 0.9rem;
-  }
+.toggle-cloudinary-button:hover {
+  background-color: #8d6e63;
 }

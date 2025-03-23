@@ -1,114 +1,246 @@
 /* 🍼 Contenedor principal con un fondo más claro */
 .admin-preguntas-container {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-    background: #fefdfb; /* 🎨 Un blanco cálido con un toque crema */
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e5c8a6; /* 🎨 Un marrón suave */
-  }
-  
-  /* 🍼 Títulos */
-  h2 {
-    text-align: center;
-    color: #8b4513; /* 🎨 Marrón chocolate */
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  p {
-    text-align: center;
-    color: #6d4c41; /* 🎨 Marrón claro */
-    font-size: 16px;
-  }
-  
-  /* 📦 Tarjetas de preguntas */
-  .pregunta-item {
-    background: #fffaf2; /* 🎨 Blanco con un toque marfil */
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 15px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-    border-left: 6px solid #d2a679; /* 🎨 Marrón suave */
-  }
-  
-  /* ❓ Pregunta */
-  .pregunta-texto {
-    font-size: 16px;
-    font-weight: bold;
-    color: #8b4513; /* 🎨 Marrón chocolate */
-  }
-  
-  /* ✅ Respuesta */
-  .respuesta-texto {
-    font-size: 14px;
-    color: #6d4c41; /* 🎨 Marrón claro */
-    font-weight: 500;
-  }
-  
-  /* 📝 Formulario de respuesta */
-  .respuesta-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  /* 📩 Input de respuesta */
-  .respuesta-form input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #d2a679; /* 🎨 Marrón suave */
-    border-radius: 8px;
-    font-size: 14px;
-    background-color: #fffaf0; /* 🎨 Fondo marfil */
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  /* ✨ Efecto cuando el usuario escribe */
-  .respuesta-form input:focus {
-    border-color: #8b4513; /* 🎨 Marrón más oscuro */
-  }
-  
-  /* 🎀 Botón de responder */
-  .respuesta-form button {
-    width: 100%;
-    background: #d2a679; /* 🎨 Marrón suave */
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s ease-in-out;
-  }
-  
-  /* ✨ Efecto al pasar el mouse */
-  .respuesta-form button:hover {
-    background: #8b4513; /* 🎨 Marrón oscuro */
-    transform: scale(1.05);
-  }
-  
-  /* 📢 Mensajes de éxito o error */
-  .mensaje {
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 5px;
-  }
-  
-  .mensaje.success {
-    color: #4caf50; /* 🎨 Verde éxito */
-    background: #e8f5e9;
-  }
-  
-  .mensaje.error {
-    color: #d32f2f; /* 🎨 Rojo error */
-    background: #fdecea;
-  }
-  
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #fefdfb;
+  /* 🎨 Un blanco cálido con un toque crema */
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e5c8a6;
+  /* 🎨 Un marrón suave */
+}
+
+/* 🍼 Títulos */
+h2 {
+  text-align: center;
+  color: #8b4513;
+  /* 🎨 Marrón chocolate */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  text-align: center;
+  color: #6d4c41;
+  /* 🎨 Marrón claro */
+  font-size: 16px;
+}
+
+/* 📦 Tarjetas de preguntas */
+.pregunta-item {
+  background: #fffaf2;
+  /* 🎨 Blanco con un toque marfil */
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #d2a679;
+  /* 🎨 Marrón suave */
+}
+
+/* ❓ Pregunta */
+.pregunta-texto {
+  font-size: 16px;
+  font-weight: bold;
+  color: #8b4513;
+  /* 🎨 Marrón chocolate */
+}
+
+/* ✅ Respuesta */
+.respuesta-texto {
+  font-size: 14px;
+  color: #6d4c41;
+  /* 🎨 Marrón claro */
+  font-weight: 500;
+}
+
+/* 📝 Formulario de respuesta */
+.respuesta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 📩 Input de respuesta */
+.respuesta-form input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #d2a679;
+  /* 🎨 Marrón suave */
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fffaf0;
+  /* 🎨 Fondo marfil */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* ✨ Efecto cuando el usuario escribe */
+.respuesta-form input:focus {
+  border-color: #8b4513;
+  /* 🎨 Marrón más oscuro */
+}
+
+/* 🎀 Botón de responder */
+.respuesta-form button {
+  width: 100%;
+  background: #d2a679;
+  /* 🎨 Marrón suave */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease-in-out;
+}
+
+/* ✨ Efecto al pasar el mouse */
+.respuesta-form button:hover {
+  background: #8b4513;
+  /* 🎨 Marrón oscuro */
+  transform: scale(1.05);
+}
+
+/* 📢 Mensajes de éxito o error */
+.mensaje {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.mensaje.success {
+  color: #4caf50;
+  /* 🎨 Verde éxito */
+  background: #e8f5e9;
+}
+
+.mensaje.error {
+  color: #d32f2f;
+  /* 🎨 Rojo error */
+  background: #fdecea;
+}
+
+/* 🧾 Tabla de preguntas */
+.tabla-preguntas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fffaf2;
+  /* Fondo marfil */
+  border: 2px solid #e5c8a6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-preguntas th,
+.tabla-preguntas td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #f1e5d0;
+  font-size: 14px;
+}
+
+.tabla-preguntas th {
+  background-color: #f8ecd9;
+  /* Encabezado cálido */
+  color: #6d4c41;
+  font-weight: bold;
+}
+
+.tabla-preguntas td {
+  background-color: #fffdf8;
+  color: #5d4037;
+}
+
+/* 🧁 Estilo para inputs y botones en la tabla */
+.tabla-preguntas input[type="text"] {
+  padding: 8px;
+  border: 2px solid #d2a679;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fffaf0;
+  outline: none;
+  width: 180px;
+  margin-right: 8px;
+}
+
+.tabla-preguntas input:focus {
+  border-color: #8b4513;
+}
+
+.tabla-preguntas button {
+  background: #d2a679;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.tabla-preguntas button:hover {
+  background: #8b4513;
+  transform: scale(1.05);
+}
+
+/* 🪟 Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 20, 10, 0.6);
+  /* Suave sombra oscura */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: #fffaf2;
+  padding: 30px;
+  width: 320px;
+  max-width: 90%;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid #d2a679;
+  text-align: center;
+}
+
+.modal-contenido h3 {
+  color: #8b4513;
+  margin-bottom: 10px;
+}
+
+.modal-contenido p {
+  color: #5d4037;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #8b4513;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cerrar:hover {
+  color: #5d2c00;
+}

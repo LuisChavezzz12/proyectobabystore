@@ -1,77 +1,49 @@
 .cloudinary-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f3e5d8; /* Fondo beige claro */
-    border: 2px solid #8B5E3C; /* Borde color café oscuro */
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 450px;
-    margin: 40px auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cloudinary-container h1 {
-    color: #5D4037; /* Café oscuro */
-    font-size: 26px;
-    margin-bottom: 20px;
-}
-
-input[type="file"] {
-    border: none;
-    background-color: #ffffff;
-    border: 2px solid #8B5E3C; /* Borde café */
-    border-radius: 8px;
+    margin: 10px 0;
     padding: 10px;
-    width: 100%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-input[type="file"]:hover {
-    background-color: #f0d8c9; /* Beige suave */
-}
-
-img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-top: 15px;
-    border: 2px solid #8B5E3C; /* Borde café */
-}
-
-.url-container {
-    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+  }
+  
+  .cloudinary-container h1 {
+    font-size: 1.2em;
+    color: #3e2723;
+    margin-bottom: 5px;
     text-align: center;
-    margin-top: 15px;
-}
-
-.url-container input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #8B5E3C; /* Borde café */
-    border-radius: 8px;
-    background-color: #ffffff;
+  }
+  
+  .cloudinary-container input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .url-container {
     text-align: center;
-}
-
-button {
-    background-color: #8B5E3C; /* Café oscuro */
-    color: #ffffff;
+  }
+  
+  .url-container p {
+    font-size: 0.9em;
+    color: #5d4037;
+  }
+  
+  .url-container input {
+    width: 100%;
+    padding: 4px;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+  }
+  
+  .url-container button {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    background-color: #8d6e63;
+    color: white;
     border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #6D4C41; /* Café más oscuro */
-}
-
-h3 {
-    color: #8B5E3C; /* Café oscuro */
-    font-weight: bold;
-    margin-top: 10px;
-}
+  }
+  
+  .url-container button:hover {
+    background-color: #6d4c41;
+  }
+  

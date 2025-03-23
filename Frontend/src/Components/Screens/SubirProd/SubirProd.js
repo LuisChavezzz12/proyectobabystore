@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import "../SubirProd/SubirProd.css";
+import "./SubirProd.css";
+import Cloudinary from "../../Cloudinary/cloudinary";
 
 function SubirProducto() {
   const [producto, setProducto] = useState({
@@ -12,6 +13,7 @@ function SubirProducto() {
     caracteristicas: "",
     imagenesAdicionales: "",
   });
+  const [mostrarCloudinary, setMostrarCloudinary] = useState(false);
 
   const handleChange = (e) => {
     setProducto({ ...producto, [e.target.name]: e.target.value });
@@ -19,6 +21,12 @@ function SubirProducto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validación de precio negativo
+    if (Number(producto.precio) < 0) {
+      alert("❌ El precio no puede ser negativo");
+      return;
+    }
 
     const nuevoProducto = {
       ...producto,
@@ -38,7 +46,6 @@ function SubirProducto() {
       );
       alert("✅ Producto agregado correctamente");
       console.log(response.data);
-      // Limpiar el formulario después de agregar el producto
       setProducto({
         imagen: "",
         nombre: "",
@@ -68,7 +75,20 @@ function SubirProducto() {
           onChange={handleChange}
           required
         />
-
+        <button
+          type="button"
+          className="toggle-cloudinary-button"
+          onClick={() => setMostrarCloudinary(!mostrarCloudinary)}
+        >
+          {mostrarCloudinary
+            ? "Ocultar subir imagen"
+            : "Subir imagen con Cloudinary"}
+        </button>
+        {mostrarCloudinary && (
+          <Cloudinary onImageUpload={(publicId) =>
+            setProducto({ ...producto, imagen: publicId })
+          } />
+        )}
         <label htmlFor="nombre">Nombre:</label>
         <input
           type="text"
@@ -79,7 +99,6 @@ function SubirProducto() {
           onChange={handleChange}
           required
         />
-
         <label htmlFor="descripcion">Descripción:</label>
         <textarea
           id="descripcion"
@@ -89,7 +108,6 @@ function SubirProducto() {
           onChange={handleChange}
           required
         />
-
         <label htmlFor="precio">Precio:</label>
         <input
           type="number"
@@ -99,8 +117,8 @@ function SubirProducto() {
           value={producto.precio}
           onChange={handleChange}
           required
+          min="0"
         />
-
         <label htmlFor="descripcionExtra">Descripción extra:</label>
         <textarea
           id="descripcionExtra"
@@ -110,7 +128,6 @@ function SubirProducto() {
           onChange={handleChange}
           required
         />
-
         <label htmlFor="caracteristicas">
           Características (separadas por comas):
         </label>
@@ -122,7 +139,6 @@ function SubirProducto() {
           value={producto.caracteristicas}
           onChange={handleChange}
         />
-
         <label htmlFor="imagenesAdicionales">
           Imágenes adicionales (separadas por comas):
         </label>
@@ -134,7 +150,6 @@ function SubirProducto() {
           value={producto.imagenesAdicionales}
           onChange={handleChange}
         />
-
         <button type="submit">Agregar Producto</button>
       </form>
     </div>

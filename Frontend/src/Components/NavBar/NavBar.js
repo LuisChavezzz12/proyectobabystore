@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";  // Importamos el ícono de usuario
+import { FaUser } from "react-icons/fa"; // Importamos el ícono de usuario
 
 function BarraNavegacion({ marca, enlaces }) {
   // Función para obtener el usuario desde el token almacenado
@@ -48,49 +48,75 @@ function BarraNavegacion({ marca, enlaces }) {
 
             {/* 🔹 Opciones visibles solo para Administradores */}
             {user && user.role === "admin" && (
-              <>
-                <Nav.Link as={Link} to="/gestionar-usuarios" className="text-danger mx-2">
+              <NavDropdown
+                title={<span className="text-danger">Admin</span>}
+                id="admin-dropdown"
+                className="text-danger mx-2"
+              >
+                <NavDropdown.Item
+                  as={Link}
+                  to="/gestionar-usuarios"
+                  className="text-danger"
+                >
                   Gestionar Usuarios
-                </Nav.Link>
-
-                <Nav.Link as={Link} to="/admin-preguntas" className="text-danger mx-2">
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/admin-preguntas"
+                  className="text-danger"
+                >
                   Administrar Preguntas
-                </Nav.Link>
-
-                {/* Opción para editar "Acerca de" */}
-                <Nav.Link as={Link} to="/editar-acerca-de" className="text-danger mx-2">
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/editar-acerca-de"
+                  className="text-danger"
+                >
                   Editar Acerca De
-                </Nav.Link>
-
-                <NavDropdown title={<span className="text-danger">Productos</span>} id="navbarScrollingDropdown" className="text-danger mx-2">
-                 
-                  <NavDropdown.Item as={Link} to="/subirp" className="text-danger">
-                    Subir Producto
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/dashboard" className="text-danger">
-                    Administrar Productos
-                  </NavDropdown.Item>
-                </NavDropdown>
-
-                <Nav.Link as={Link} to="/subir" className="text-danger mx-2">
-                  Subir Imagen
-                </Nav.Link>
-              </>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                  as={Link}
+                  to="/subirp"
+                  className="text-danger"
+                >
+                  Subir Producto
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/dashboard"
+                  className="text-danger"
+                >
+                  Administrar Productos
+                </NavDropdown.Item>
+              </NavDropdown>
             )}
           </Nav>
 
           {/* 🔹 Opciones de usuario */}
           <Nav>
             {user ? (
-              <NavDropdown title={<FaUser style={{ fontSize: "2em" }} />} id="navbarScrollingDropdown" align="end" className="text-light">
+              <NavDropdown
+                title={<FaUser style={{ fontSize: "2em" }} />}
+                id="navbarScrollingDropdown"
+                align="end"
+                className="text-light"
+              >
                 <NavDropdown.Item as={Link} to="/perfil" className="text-dark">
                   Ver Perfil
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/editar-perfil" className="text-dark">
+                <NavDropdown.Item
+                  as={Link}
+                  to="/editar-perfil"
+                  className="text-dark"
+                >
                   Modificar Perfil
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={handleLogout} className="text-danger">
+                <NavDropdown.Item
+                  onClick={handleLogout}
+                  className="text-danger"
+                >
                   Cerrar Sesión
                 </NavDropdown.Item>
               </NavDropdown>

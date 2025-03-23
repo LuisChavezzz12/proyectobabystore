@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./AdminPreguntas.css"; // Asegúrate de tener el archivo de estilos
+import "./AdminPreguntas.css";
 
 const AdminPreguntas = () => {
   const [faqs, setFaqs] = useState([]);
   const [mensaje, setMensaje] = useState("");
-  const [respuestas, setRespuestas] = useState({}); // Estado para manejar respuestas individuales
+  const [respuestas, setRespuestas] = useState({});
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [respuestaSeleccionada, setRespuestaSeleccionada] = useState("");
 
-  // Obtener todas las preguntas desde el backend
   useEffect(() => {
     const obtenerPreguntas = async () => {
       try {
@@ -21,12 +22,10 @@ const AdminPreguntas = () => {
     obtenerPreguntas();
   }, []);
 
-  // Función para actualizar el estado de una respuesta
   const manejarCambioRespuesta = (id, valor) => {
     setRespuestas((prev) => ({ ...prev, [id]: valor }));
   };
 
-  // Función para responder una pregunta
   const responderPregunta = async (id) => {
     const nuevaRespuesta = respuestas[id];
 
@@ -38,15 +37,23 @@ const AdminPreguntas = () => {
     try {
       await axios.put(`https://backend-xi-ashen-51.vercel.app/faqs/${id}`, { respuesta: nuevaRespuesta });
       setMensaje("✅ Pregunta respondida con éxito.");
-
-      // Recargar las preguntas después de responder
       const response = await axios.get("https://backend-xi-ashen-51.vercel.app/faqs");
       setFaqs(response.data);
-      setRespuestas((prev) => ({ ...prev, [id]: "" })); // Limpiar respuesta después de enviar
+      setRespuestas((prev) => ({ ...prev, [id]: "" }));
     } catch (error) {
       console.error("Error al responder la pregunta:", error);
       setMensaje("❌ Hubo un error al responder la pregunta.");
     }
+  };
+
+  const abrirModal = (respuesta) => {
+    setRespuestaSeleccionada(respuesta || "Aún no respondida");
+    setModalAbierto(true);
+  };
+
+  const cerrarModal = () => {
+    setModalAbierto(false);
+    setRespuestaSeleccionada("");
   };
 
   return (
@@ -56,30 +63,53 @@ const AdminPreguntas = () => {
 
       {mensaje && <p className="mensaje">{mensaje}</p>}
 
-      <div className="preguntas-lista">
-        {faqs.length === 0 ? (
-          <p>No hay preguntas pendientes.</p>
-        ) : (
-          faqs.map((faq) => (
-            <div key={faq._id} className="pregunta-item">
-              <p className="pregunta-texto"><strong>❓ {faq.pregunta}</strong></p>
-              <p className="respuesta-texto">✅ {faq.respuesta || "Aún no respondida"}</p>
+      <table className="tabla-preguntas">
+        <thead>
+          <tr>
+            <th>Pregunta</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {faqs.length === 0 ? (
+            <tr>
+              <td colSpan="2">No hay preguntas pendientes.</td>
+            </tr>
+          ) : (
+            faqs.map((faq) => (
+              <tr key={faq._id}>
+                <td>{faq.pregunta}</td>
+                <td>
+                  <button onClick={() => abrirModal(faq.respuesta)}>Ver</button>
+                  {!faq.respuesta && (
+                    <>
+                      <input
+                        type="text"
+                        placeholder="Escribe la respuesta..."
+                        value={respuestas[faq._id] || ""}
+                        onChange={(e) => manejarCambioRespuesta(faq._id, e.target.value)}
+                      />
+                      <button onClick={() => responderPregunta(faq._id)}>Responder</button>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
 
-              {!faq.respuesta && (
-                <div className="respuesta-form">
-                  <input
-                    type="text"
-                    placeholder="Escribe la respuesta..."
-                    value={respuestas[faq._id] || ""}
-                    onChange={(e) => manejarCambioRespuesta(faq._id, e.target.value)}
-                  />
-                  <button onClick={() => responderPregunta(faq._id)}>Responder</button>
-                </div>
-              )}
-            </div>
-          ))
-        )}
-      </div>
+      {modalAbierto && (
+        <div className="modal">
+          <div className="modal-contenido">
+            <span className="cerrar" onClick={cerrarModal}>
+              &times;
+            </span>
+            <h3>Respuesta</h3>
+            <p>{respuestaSeleccionada}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

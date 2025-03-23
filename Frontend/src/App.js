@@ -65,20 +65,21 @@ function App() {
             <Route path="/detalle-producto/:id" element={<DetalleProducto />} />
             <Route path="/preguntar" element={<FormularioPreguntas />} />
             <Route path="/dispositivos" element={<DispositivosUsuario />} />
-            <Route path="/configurar-dispositivo/:id" element={<ConfigurarDispositivo />} />
-            <Route path="/administrar-dispositivo" element={<ESP32Control />} /> {/* ✅ Agregado */}
-
+            <Route
+              path="/configurar-dispositivo/:id"
+              element={<ConfigurarDispositivo />}
+            />
+            <Route path="/administrar-dispositivo" element={<ESP32Control />} />{" "}
+            {/* ✅ Agregado */}
             <Route path="/recuperar" element={<RecuperarPassword />} />
             <Route
               path="/verificar-respuesta"
               element={<VerificarRespuesta />}
             />
             <Route path="/restablecer" element={<RestablecerPassword />} />
-
             {/* 🔹 Rutas de perfil */}
             <Route path="/perfil" element={<ViewPerfil />} />
             <Route path="/editar-perfil" element={<EditPerfil />} />
-
             {/* 🔹 Rutas protegidas (solo admin) */}
             <Route
               path="/subir"

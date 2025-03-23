@@ -1,121 +1,259 @@
+/* ========================
+   ESTILOS GENERALES
+======================== */
+
 /* Títulos */
 .dashboard-title {
-    text-align: center;
-    color: #3e2723; /* Tono café oscuro */
-    font-size: 1.8em;
-    margin-bottom: 15px;
-  }
-  
-  .form-title {
-    color: #5d4037; /* Tono café más claro */
-    font-size: 1.4em;
-    margin-bottom: 12px;
-  }
-  
-  /* Estilos del formulario */
-  .form-container {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: none;
-    margin-bottom: 20px;
-  }
-  
-  .input, .textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-  }
-  
-  .submit-button {
-    background-color: #8d6e63; /* Tono café claro */
-    color: white;
-    padding: 8px 15px;
-    font-size: 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .submit-button:hover {
-    background-color: #6d4c41; /* Cambio de color al pasar el ratón */
-  }
-  
-  /* Estilo para la tabla */
-  .product-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-  
-  .product-table th, .product-table td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-    font-size: 1em;
-  }
-  
-  .product-table th {
-    background-color: #3e2723;
-    color: white;
-    font-size: 1.1em;
-  }
-  
-  .product-table td {
-    background-color: #fff;
-  }
-  
-  /* Filas alternas con colores */
-  .product-table tr:nth-child(even) td {
-    background-color: #f9f9f9;
-  }
-  
-  /* Efecto hover en filas */
-  .product-table tr:hover {
-    background-color: #efebe9;
-  }
-  
-  /* Botones en la tabla */
-  .edit-button {
-    background-color: #0288d1; /* Azul para editar */
-    padding: 6px 12px;
-    font-size: 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 8px;
-  }
-  
-  .edit-button:hover {
-    background-color: #0277bd;
-  }
-  
-  .delete-button {
-    background-color: #d32f2f; /* Rojo para eliminar */
-    padding: 6px 12px;
-    font-size: 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .delete-button:hover {
-    background-color: #c62828; /* Cambio de color al pasar el ratón */
-  }
-  
-  /* Asegurando que los botones no sobresalgan de la tabla */
-  .product-table td button {
-    margin: 4px;
-  }
-  
-  /* Estilos para el texto cargando */
-  .loading-text {
-    text-align: center;
-    font-size: 1.1em;
-    color: #6d4c41;
-  }
-      
+  text-align: center;
+  color: #3e2723; /* Tono café oscuro */
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.form-title {
+  color: #5d4037; /* Tono café más claro */
+  font-size: 1.4em;
+  margin-bottom: 12px;
+}
+
+/* Estilos del formulario */
+.form-container {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.submit-button {
+  background-color: #8d6e63; /* Tono café claro */
+  color: white;
+  padding: 8px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #6d4c41; /* Cambio de color al pasar el ratón */
+}
+
+/* ========================
+   ESTILOS DE LA TABLA
+======================== */
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.product-table th,
+.product-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+.product-table th {
+  background-color: #3e2723;
+  color: white;
+  font-size: 1.1em;
+}
+
+.product-table td {
+  background-color: #fff;
+}
+
+/* Filas alternas con colores */
+.product-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+/* Efecto hover en filas */
+.product-table tr:hover {
+  background-color: #efebe9;
+}
+
+/* Asegurando que los botones no sobresalgan de la tabla */
+.product-table td button {
+  margin: 4px;
+}
+
+/* Estilos para el texto cargando */
+.loading-text {
+  text-align: center;
+  font-size: 1.1em;
+  color: #6d4c41;
+}
+
+/* ========================
+   ESTILOS DE LOS BOTONES (TONOS CAFÉS COLORIDOS)
+======================== */
+
+/* Contenedor de los botones en una sola línea */
+.acciones-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+/* Botones con tamaño uniforme */
+.view-button,
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Botón Ver: Sienna y SaddleBrown */
+.view-button {
+  background-color: #A0522D;
+  color: white;
+}
+
+.view-button:hover {
+  background-color: #8B4513;
+}
+
+/* Botón Editar: Peru y Chocolate */
+.edit-button {
+  background-color: #CD853F;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #D2691E;
+}
+
+/* Botón Eliminar: Coffee Brown */
+.delete-button {
+  background-color: #6F4E37;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #5C3D2E;
+}
+
+/* ========================
+   PAGINACIÓN
+======================== */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Contenedor de la tabla */
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+/* Sección de paginación */
+.paginacion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.pagina-info {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4e342e;
+}
+
+.pagination-button {
+  background-color: #6d4c41;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination-button:disabled {
+  background-color: #b0a79e;
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #4e342e;
+}
+
+/* ========================
+   MODAL
+======================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 20, 10, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  width: 320px;
+  max-width: 90%;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #3e2723;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #5d2c00;
+}
+
+.modal-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}

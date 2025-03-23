@@ -1,8 +1,24 @@
-/* Estilo para la tabla */
+/* 🔽 Contenedor general */
+.usuarios-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* 🔽 Contenedor de la tabla (Asegura que la paginación no se desplace con ella) */
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px; /* 🔴 Agrega espacio para evitar que la paginación se monte sobre la tabla */
+}
+
+/* 🔽 Asegurar que la tabla ocupe el 100% y se ajuste */
 .usuarios-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 .usuarios-table th, .usuarios-table td {
@@ -12,40 +28,49 @@
 }
 
 .usuarios-table th {
-  background-color: #4e342e; /* Tono café oscuro */
+  background-color: #4e342e;
   color: white;
 }
 
 .usuarios-table tr:nth-child(even) {
-  background-color: #f5f3f0; /* Fondo claro para las filas pares */
+  background-color: #f5f3f0;
 }
 
 .usuarios-table tr:hover {
-  background-color: #f1e0d6; /* Color de fondo al pasar el ratón */
+  background-color: #f1e0d6;
 }
 
-button {
-  padding: 8px 16px;
-  margin: 5px;
-  border: none;
-  border-radius: 4px;
+/* 📌 Estilos para la paginación */
+.paginacion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.pagina-info {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4e342e;
+}
+
+.pagination-button {
+  background-color: #6d4c41;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.edit-button {
-  background-color: #795548; /* Color de fondo para editar */
-  color: white;
+.pagination-button:disabled {
+  background-color: #b0a79e;
+  cursor: not-allowed;
 }
 
-.edit-button:hover {
-  background-color: #6d4c41; /* Color al pasar el mouse */
-}
-
-.delete-button {
-  background-color: #d32f2f; /* Rojo para eliminar */
-  color: white;
-}
-
-.delete-button:hover {
-  background-color: #b71c1c; /* Color al pasar el mouse */
+.pagination-button:hover:not(:disabled) {
+  background-color: #4e342e;
 }
