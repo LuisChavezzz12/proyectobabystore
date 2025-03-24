@@ -52,10 +52,6 @@ const ViewProfile = () => {
             <p>{userData.phone}</p>
           </div>
           <div className="profile-field">
-            <label>🔐 Rol:</label>
-            <p>{userData.role}</p>
-          </div>
-          <div className="profile-field">
             <label>❓ Pregunta Secreta:</label>
             <p>{userData.secretQuestion}</p>
           </div>

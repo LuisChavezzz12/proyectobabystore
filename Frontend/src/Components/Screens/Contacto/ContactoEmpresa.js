@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ContactoEmpresa.css";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 const ContactoEmpresa = () => {
   const [contacto, setContacto] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Coordenadas fijas de la empresa
+  const empresaCoords = [21.15643826033455, -98.38639354668986];
+
+  // Ícono personalizado
+  const iconoPersonalizado = new L.Icon({
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+    iconSize: [32, 32],
+  });
+
   useEffect(() => {
     axios
-      .get("https://backend-xi-ashen-51.vercel.app/contacto") // 🔗 API real
+      .get("https://backend-xi-ashen-51.vercel.app/contacto")
       .then((response) => {
         setContacto(response.data);
         setLoading(false);
@@ -79,20 +91,22 @@ const ContactoEmpresa = () => {
         </ul>
       </div>
 
-      {contacto.ubicacion && (
-        <div className="mapa-preview">
-          <h3>🗺️ Ubicación</h3>
-          <iframe
-            title="Ubicación de la empresa"
-            src={contacto.ubicacion}
-            width="100%"
-            height="300"
-            style={{ border: 0, borderRadius: "10px" }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
-        </div>
-      )}
+      <div className="mapa-preview">
+        <h3>🗺️ Ubicación</h3>
+        <MapContainer
+          center={empresaCoords}
+          zoom={26}
+          style={{ height: "300px", width: "100%", borderRadius: "10px" }}
+        >
+          <TileLayer
+            attribution='&copy; OpenStreetMap'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={empresaCoords} icon={iconoPersonalizado}>
+            <Popup>📍 Aquí se encuentra la empresa</Popup>
+          </Marker>
+        </MapContainer>
+      </div>
     </div>
   );
 };

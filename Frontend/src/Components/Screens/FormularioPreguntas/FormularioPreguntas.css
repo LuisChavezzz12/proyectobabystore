@@ -1,56 +1,200 @@
-.formulario-preguntas-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2, h3 {
-  text-align: center;
-  color: #333;
-}
-
-form {
+.formulario-preguntas-grid {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fdf6f1;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(140, 90, 45, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  color: #4e322a;
 }
 
-textarea {
+.formulario-preguntas-col,
+.preguntas-frecuentes-col {
+  flex: 1 1 48%;
+  background-color: #fffaf6;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid #ead4c4;
+  box-shadow: 0 4px 15px rgba(160, 92, 59, 0.05);
+}
+
+.formulario-preguntas h2,
+.preguntas-frecuentes-col h3 {
+  color: #8e4a1d;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #7b5c46;
+}
+
+.formulario-preguntas textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  min-height: 100px;
+  border: 1px solid #d2bba3;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 1rem;
+  background: #fffaf6;
+  transition: border-color 0.3s ease;
 }
 
-button {
-  background: #007bff;
-  color: white;
-  padding: 10px;
+.formulario-preguntas textarea:focus {
+  border-color: #a67b5b;
+  outline: none;
+}
+
+.formulario-preguntas button {
+  background-color: #a05c3b;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
 }
 
-button:hover {
-  background: #0056b3;
+.formulario-preguntas button:hover {
+  background-color: #8e4a1d;
 }
 
 .mensaje {
-  text-align: center;
+  margin-top: 1rem;
   font-weight: bold;
-}
-
-.preguntas-frecuentes {
-  margin-top: 20px;
+  color: #7b4d29;
 }
 
 .faq-item {
-  background: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-left: 6px solid #a67b5b;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(140, 90, 45, 0.05);
+}
+
+.pregunta {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #5d3b24;
+}
+
+.respuesta {
+  color: #6b4b3a;
+}
+
+.ver-respuesta {
+  color: #a05c3b;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Spinner */
+.spinner-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fff;
+  border-top: 3px solid #a67b5b;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(30, 15, 10, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contenido {
+  background: #fffaf6;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-contenido h3 {
+  margin-top: 0;
+  color: #8e4a1d;
+}
+
+.modal-contenido p {
+  color: #4b2e1e;
+  line-height: 1.6;
+}
+
+.cerrar {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #a05c3b;
+}
+
+/* Paginación */
+.paginacion {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.paginacion button {
+  background-color: #f0e0d0;
+  border: 1px solid #cba07e;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #5c3b28;
+  transition: background 0.2s ease;
+}
+
+.paginacion button:hover:not(:disabled) {
+  background-color: #e4c5a8;
+}
+
+.paginacion button.activo {
+  background-color: #a05c3b;
+  color: #fff;
+  font-weight: bold;
+  border-color: #8e4a1d;
+}
+
+.paginacion button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

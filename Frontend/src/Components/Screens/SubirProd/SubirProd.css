@@ -1,74 +1,118 @@
 .subir-producto-container {
-  /* Aumentamos el ancho para que no se vea tan alto */
-  max-width: 600px;
-  /* Más espacio arriba/abajo y a los lados */
-  margin: 30px auto;
-  /* Reducimos un poco el padding para que no se vea tan "alto" */
-  padding: 15px 20px;
-  background: #fffaf2;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #fdf6f0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(140, 90, 45, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  color: #5a392b;
 }
 
 .subir-producto-container h2 {
   text-align: center;
-  font-size: 1.5em;
-  color: #3e2723;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #8e4a1d;
+  margin-bottom: 1rem;
+  border-bottom: 2px dashed #dcbfa7;
+  padding-bottom: 0.5rem;
 }
 
 .subir-producto-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+  border: 2px dashed #d3b39a;
+  border-radius: 18px;
+  background-color: #fffdfb;
+}
+
+.subir-producto-form > div {
   display: flex;
   flex-direction: column;
-  /* Reducimos la brecha vertical */
-  gap: 6px;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border: 1px dashed #e0c3ae;
+  border-radius: 14px;
+  background-color: #fefaf6;
 }
 
 .subir-producto-form label {
-  font-size: 0.85em;
-  color: #5d4037;
+  font-weight: bold;
+  font-size: 0.92rem;
+  color: #6b4a34;
+  margin-bottom: 0.2rem;
 }
 
 .subir-producto-form input,
 .subir-producto-form textarea {
-  padding: 6px;
-  font-size: 0.9em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #c9a789;
+  background-color: #fff;
+  font-size: 0.95rem;
+  resize: none;
+  transition: border-color 0.3s ease;
+  line-height: 1.4;
 }
 
-.subir-producto-form textarea {
-  resize: vertical;
-  min-height: 60px;
+.subir-producto-form input:focus,
+.subir-producto-form textarea:focus {
+  border-color: #a67b5b;
+  outline: none;
+  background-color: #fffefc;
 }
 
-/* Botones más pequeños */
-.subir-producto-form button {
-  padding: 5px 8px;
-  font-size: 0.85em;
-  background-color: #8d6e63;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.subir-producto-form button:hover {
-  background-color: #6d4c41;
-}
-
-/* Botón para alternar Cloudinary aún más compacto */
 .toggle-cloudinary-button {
-  background-color: #a1887f;
-  color: white;
+  background-color: #a67b5b;
+  color: #fff;
+  padding: 0.4rem 1rem;
+  font-size: 0.88rem;
   border: none;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 0.75em;
+  border-radius: 9px;
   cursor: pointer;
-  margin-top: 5px;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
 }
 
 .toggle-cloudinary-button:hover {
-  background-color: #8d6e63;
+  background-color: #8e4a1d;
+}
+
+.boton-submit {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.8rem;
+  background: none;
+  border: none;
+}
+
+.subir-producto-form button[type="submit"] {
+  background-color: #8e4a1d;
+  color: #fff;
+  padding: 0.5rem 1.6rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.subir-producto-form button[type="submit"]:hover {
+  background-color: #743617;
+  transform: scale(1.03);
+}
+
+@media screen and (max-width: 768px) {
+  .subir-producto-form {
+    grid-template-columns: 1fr;
+  }
+
+  .subir-producto-form button[type="submit"] {
+    width: 100%;
+  }
 }

@@ -60,7 +60,6 @@ function DispositivosUsuario() {
             <tr>
               <th>Nombre del Producto</th>
               <th>Nombre del Dispositivo</th>
-              <th>IP</th>
               <th>Estado</th>
               <th>Acciones</th>
             </tr>
@@ -70,7 +69,6 @@ function DispositivosUsuario() {
               <tr key={dispositivo._id}>
                 <td>{dispositivo.nombreProducto}</td>
                 <td>{dispositivo.nombreDispositivo}</td>
-                <td>{dispositivo.ipDispositivo}</td>
                 <td>{dispositivo.estado}</td>
                 <td>
                   <button

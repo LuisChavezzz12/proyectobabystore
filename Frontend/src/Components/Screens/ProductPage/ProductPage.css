@@ -1,14 +1,93 @@
-.product-container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente fila cuando se alcanza el límite de la pantalla */
-    justify-content: space-between; /* Espacio entre las tarjetas */
-    gap: 20px; /* Espacio entre las tarjetas */
-    padding: 20px;
+/* Fondo general */
+.product-page-wrapper {
+  padding: 20px;
+  background-color: #fdf8f3;
+}
+
+/* Grid de productos en 4 columnas */
+.tarjeta-prods-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 40px;
+  padding: 0 1rem;
+}
+
+/* Responsivo: en tablets 2 columnas, en móviles 1 */
+@media (max-width: 1024px) {
+  .tarjeta-prods-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .product-container > div {
-    flex: 1 1 18%; /* Cada tarjeta ocupa un 18% del contenedor, puede ajustarse según el diseño */
-    min-width: 280px; /* Asegura que las tarjetas no se vean demasiado pequeñas */
-    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+@media (max-width: 600px) {
+  .tarjeta-prods-grid {
+    grid-template-columns: 1fr;
   }
-  
+}
+
+/* Contenedor del paginador */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Estilo del paginador */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.pagination button {
+  padding: 0.7rem 2rem;
+  background-color: #7a3e1d; /* Café oscuro */
+  color: #fff8f0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(122, 62, 29, 0.3);
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #5e2e14; /* Café más profundo */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(94, 46, 20, 0.4);
+}
+
+.pagination button:disabled {
+  background-color: #c2b4a9;
+  color: #fdf8f3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.ver-detalles-btn {
+  background-color: #7a3e1d; /* Café oscuro */
+  color: #fff8f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(122, 62, 29, 0.3);
+}
+
+.ver-detalles-btn:hover {
+  background-color: #5e2e14; /* Café más profundo */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(94, 46, 20, 0.4);
+}
+

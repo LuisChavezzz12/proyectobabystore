@@ -13,6 +13,7 @@ function SubirProducto() {
     caracteristicas: "",
     imagenesAdicionales: "",
   });
+
   const [mostrarCloudinary, setMostrarCloudinary] = useState(false);
 
   const handleChange = (e) => {
@@ -22,7 +23,6 @@ function SubirProducto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación de precio negativo
     if (Number(producto.precio) < 0) {
       alert("❌ El precio no puede ser negativo");
       return;
@@ -65,92 +65,112 @@ function SubirProducto() {
     <div className="subir-producto-container">
       <h2>Subir Producto</h2>
       <form onSubmit={handleSubmit} className="subir-producto-form">
-        <label htmlFor="imagen">URL de la imagen:</label>
-        <input
-          type="text"
-          id="imagen"
-          name="imagen"
-          placeholder="URL de la imagen"
-          value={producto.imagen}
-          onChange={handleChange}
-          required
-        />
-        <button
-          type="button"
-          className="toggle-cloudinary-button"
-          onClick={() => setMostrarCloudinary(!mostrarCloudinary)}
-        >
-          {mostrarCloudinary
-            ? "Ocultar subir imagen"
-            : "Subir imagen con Cloudinary"}
-        </button>
-        {mostrarCloudinary && (
-          <Cloudinary onImageUpload={(publicId) =>
-            setProducto({ ...producto, imagen: publicId })
-          } />
-        )}
-        <label htmlFor="nombre">Nombre:</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          placeholder="Nombre"
-          value={producto.nombre}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="descripcion">Descripción:</label>
-        <textarea
-          id="descripcion"
-          name="descripcion"
-          placeholder="Descripción"
-          value={producto.descripcion}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="precio">Precio:</label>
-        <input
-          type="number"
-          id="precio"
-          name="precio"
-          placeholder="Precio"
-          value={producto.precio}
-          onChange={handleChange}
-          required
-          min="0"
-        />
-        <label htmlFor="descripcionExtra">Descripción extra:</label>
-        <textarea
-          id="descripcionExtra"
-          name="descripcionExtra"
-          placeholder="Descripción extra"
-          value={producto.descripcionExtra}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="caracteristicas">
-          Características (separadas por comas):
-        </label>
-        <input
-          type="text"
-          id="caracteristicas"
-          name="caracteristicas"
-          placeholder="Características"
-          value={producto.caracteristicas}
-          onChange={handleChange}
-        />
-        <label htmlFor="imagenesAdicionales">
-          Imágenes adicionales (separadas por comas):
-        </label>
-        <input
-          type="text"
-          id="imagenesAdicionales"
-          name="imagenesAdicionales"
-          placeholder="Imágenes adicionales"
-          value={producto.imagenesAdicionales}
-          onChange={handleChange}
-        />
-        <button type="submit">Agregar Producto</button>
+        {/* Columna 1 */}
+        <div>
+          <label htmlFor="imagen">URL de la imagen:</label>
+          <input
+            type="text"
+            id="imagen"
+            name="imagen"
+            placeholder="URL de la imagen"
+            value={producto.imagen}
+            onChange={handleChange}
+            required
+          />
+
+          <button
+            type="button"
+            className="toggle-cloudinary-button"
+            onClick={() => setMostrarCloudinary(!mostrarCloudinary)}
+          >
+            {mostrarCloudinary
+              ? "Ocultar subir imagen"
+              : "Subir imagen con Cloudinary"}
+          </button>
+
+          {mostrarCloudinary && (
+            <Cloudinary
+              onImageUpload={(publicId) =>
+                setProducto({ ...producto, imagen: publicId })
+              }
+            />
+          )}
+
+          <label htmlFor="nombre">Nombre:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Nombre"
+            value={producto.nombre}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="descripcion">Descripción:</label>
+          <textarea
+            id="descripcion"
+            name="descripcion"
+            placeholder="Descripción"
+            value={producto.descripcion}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* Columna 2 */}
+        <div>
+          <label htmlFor="precio">Precio:</label>
+          <input
+            type="number"
+            id="precio"
+            name="precio"
+            placeholder="Precio"
+            value={producto.precio}
+            onChange={handleChange}
+            required
+            min="0"
+          />
+
+          <label htmlFor="descripcionExtra">Descripción extra:</label>
+          <textarea
+            id="descripcionExtra"
+            name="descripcionExtra"
+            placeholder="Descripción extra"
+            value={producto.descripcionExtra}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="caracteristicas">
+            Características (separadas por comas):
+          </label>
+          <input
+            type="text"
+            id="caracteristicas"
+            name="caracteristicas"
+            placeholder="Ej: Liviana, Compacta, Inteligente"
+            value={producto.caracteristicas}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="imagenesAdicionales">
+            Imágenes adicionales (separadas por comas):
+          </label>
+          <input
+            type="text"
+            id="imagenesAdicionales"
+            name="imagenesAdicionales"
+            placeholder="URLs separadas por coma"
+            value={producto.imagenesAdicionales}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Botón enviar */}
+        <div className="boton-submit">
+          <button type="submit">Agregar Producto</button>
+        </div>
       </form>
     </div>
   );

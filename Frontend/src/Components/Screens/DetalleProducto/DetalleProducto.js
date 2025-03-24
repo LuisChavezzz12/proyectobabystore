@@ -6,7 +6,7 @@ import "./DetalleProducto.css";
 function DetalleProducto() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [mensaje, setMensaje] = useState("");
+  const [mensaje] = useState("");
 
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
@@ -26,11 +26,10 @@ function DetalleProducto() {
 
   const handleAgregarClick = async () => {
     if (!token || !userId) {
-      navigate("/login"); // Si el usuario no está logeado, redirigirlo a /login
+      navigate("/login");
       return;
     }
 
-    // Mostrar confirmación antes de agregar el dispositivo
     const confirmar = window.confirm(
       "¿Estás seguro de que quieres agregar este dispositivo?"
     );
@@ -42,18 +41,19 @@ function DetalleProducto() {
         {
           usuario: userId,
           nombreProducto: nombre,
-          nombreDispositivo: "Dispositivo IoT", // Valor por defecto
-          ipDispositivo: "0.0.0.0", // Valor por defecto
+          nombreDispositivo: "Dispositivo IoT",
           idProducto: Math.random().toString(36).substring(7),
-          estado: "offline",
+          estado: "online",
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      setMensaje("✅ Dispositivo registrado correctamente.");
+      // ✅ Mostrar mensaje antes de redirigir
+      alert("✅ Dispositivo registrado correctamente.");
       navigate("/dispositivos");
     } catch (error) {
-      setMensaje("❌ Error al registrar el dispositivo.");
+      console.error("Error:", error);
+      alert("❌ Error al registrar el dispositivo.");
     }
   };
 

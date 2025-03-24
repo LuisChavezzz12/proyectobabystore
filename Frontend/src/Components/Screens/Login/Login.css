@@ -1,183 +1,123 @@
+/* Wrapper general */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #fdf8f4;
+}
+
+/* Contenedor del formulario */
 .login-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 100%;
+  background-color: #fffefc;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(150, 100, 50, 0.1);
+  padding: 30px 35px;
   max-width: 400px;
+  width: 100%;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+/* Título */
+.login-container h2 {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  color: #5c3317;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #343a40;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-form div {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #495057;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* 🔹 Contenedor para el input con el ícono del ojo */
-.password-wrapper {
-  position: relative;
+/* Inputs */
+.login-container input {
   width: 100%;
-}
-
-.password-wrapper input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ced4da;
+  padding: 10px 40px 10px 12px;
+  margin-top: 5px;
+  margin-bottom: 18px;
   border-radius: 8px;
-  font-size: 14px;
-  color: #495057;
-  outline: none;
-  padding-right: 40px;
-  /* Espacio reservado para el ícono */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ccc;
+  background-color: #fcf9f6;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-/* 🔹 Ícono del ojo alineado a la derecha dentro del input */
-.toggle-password {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #8b5e3c;
-  /* Marrón amigable */
-  font-size: 1.2em;
+/* Etiquetas */
+.login-container label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  color: #6b3f24;
+  margin-bottom: 4px;
 }
 
-input:focus {
-  border-color: #80bdff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-}
-
-button {
+/* Botón */
+.login-container button {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #8b4c21;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+.login-container button:hover {
+  background-color: #a3562a;
 }
 
-button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
-  transform: none;
+.login-container .error {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
-.error {
-  color: #dc3545;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 8px;
-  padding: 8px;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-.register-link {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.register-link:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-/* 🔹 Spinner de carga */
-.spinner {
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #fff;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Estilo para el contenedor de la contraseña con el ícono */
+/* Ojito */
 .password-container {
   position: relative;
-  width: 100%;
 }
 
 .password-container input {
-  width: 100%;
-  padding: 0.6rem;
-  padding-right: 40px;
-  /* Espacio para el ícono */
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #495057;
+  padding-right: 42px;
 }
 
 .toggle-password {
   position: absolute;
-  right: 10px;
   top: 50%;
+  right: 12px;
   transform: translateY(-50%);
   cursor: pointer;
-  color: #8b5e3c;
-  /* Marrón amigable */
-  font-size: 1.2em;
+  color: #a3562a;
+  font-size: 1.2rem;
+  z-index: 2;
 }
 
-button {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #8b5e3c;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
+/* Enlaces */
+.register-link,
+.forgot-password-link {
+  color: #5e3219;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
+  text-decoration: underline;
+  margin-top: 10px;
+  display: inline-block;
 }
 
-button:hover {
-  background-color: #6b4f36;
+/* Estilo cuando la contraseña está oculta */
+.password-container input[type="password"] {
+  filter: blur(1px);
+  transition: filter 0.3s ease;
+}
+
+/* Estilo cuando está visible (sin blur) */
+.password-container input[type="text"] {
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+/* Animación del ojito */
+.toggle-password {
+  transition: transform 0.2s ease;
+}
+
+.toggle-password:active {
+  transform: scale(1.2);
 }
