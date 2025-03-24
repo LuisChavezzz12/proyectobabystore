@@ -96,7 +96,7 @@ const EditAbout = () => {
   if (loading) return <p>Cargando...</p>;
 
   return (
-    <div>
+    <div className="edit-about-container">
       <h2>Editar Acerca De</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
